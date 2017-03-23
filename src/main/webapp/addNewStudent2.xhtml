@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+
+<h:head>
+	<title>Naujo Moksleivio Registracija</title>
+</h:head>
+
+<h:body>
+	<h1>Naujo Moksleivio Registracija</h1>
+	<h:form>
+		<p:fieldset legend="Informacija apie mokinį:" style="width:500px; color:#585858">
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Vardas: "></h:outputLabel>
+					<p:inputText value="" />
+				<h:outputLabel value="Pavardė: "></h:outputLabel>
+					<p:inputText value="" />
+				<h:outputLabel value="Gimimo data: "></h:outputLabel>
+					<p:inputMask value="" mask="9999-99-99"/>
+				<h:outputLabel value="Adresas: "></h:outputLabel>
+					<p:inputText value="" />
+				<p:outputLabel for="savivaldybe" value="Savivaldybė: " />
+					<p:selectOneMenu id="savivaldybe" value="kintamasis 'multicipality'">
+						<f:selectItem itemLabel="Savivaldybė" itemValue="" />
+						<f:selectItems value="kintamasis 'multicipalityList'" />
+					</p:selectOneMenu>
+				<h:outputLabel value="Telefonas: "></h:outputLabel>
+					<p:inputMask value="" mask="+370 9 999 9999"/>
+				<h:outputLabel value="Elektroninis paštas: "></h:outputLabel>
+					<p:inputText value="" />
+				<h:outputLabel for="education" value="Išsilavinimas: "></h:outputLabel>
+					<p:selectOneMenu id="education" value="kintamasis 'education'">
+						<f:selectItem itemLabel="Išsilavinimas" itemValue="" />
+						<f:selectItems value="kintamasis 'educationList'" />
+					</p:selectOneMenu>
+				<h:outputLabel value="Baigė mokymo įstaigą: "></h:outputLabel>
+					<p:inputText value="" />
+				<h:outputLabel value="Mokyklos baigimo metai: "></h:outputLabel>
+					<p:inputMask value="" mask="9999-99-99"/>
+				<h:outputLabel for="maritalStatus" value="Moksleivio šeimyninė padėtis: "></h:outputLabel>
+					<p:selectOneMenu id="maritalStatus" value="kintamasis 'maritalStatus'">
+						<f:selectItem itemLabel=";)" itemValue="" />
+						<f:selectItems value="kintamasis 'maritalStatList'" />
+					</p:selectOneMenu>			
+			</h:panelGrid>
+		</p:fieldset>
+	</h:form>
+</h:body>
+
+</html>

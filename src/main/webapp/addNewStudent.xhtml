@@ -9,17 +9,16 @@
     <h:body>
         <h:form id="newCustomerForm">
             <h3>Add New Student</h3>
-            <h:panelGrid columns="3">
-                <h:outputText value="Name:"/>
-                <h:inputText id="clientName" value="#{newStudentBean.studentFirstName}" required="true"/>
-                <h:message for="clientName"/>
+            <p:panelGrid columns="3">
+                <p:outputText value="Name:"/>
+                <p:inputText id="clientName" required="true"/>
+                <p:message for="clientName"/>
                 
                 <h:outputText value="Surname:"/>
                 <h:inputText id="clientSurname" value="#{newStudentBean.studentLastName}" required="true"/>
                 <h:message for="clientSurname"/>
 
-            </h:panelGrid>
-            <h:commandButton action="#{newStudentBean.save()}" value="Add"/>
+            </p:panelGrid>
         </h:form>
     </h:body>
 </html>
