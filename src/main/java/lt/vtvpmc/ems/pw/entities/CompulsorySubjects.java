@@ -1,7 +1,6 @@
 package lt.vtvpmc.ems.pw.entities;
 
 import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -199,9 +198,5 @@ public class CompulsorySubjects implements Serializable {
 
 	public void setBasketball(int basketball) {
 		this.basketball = basketball;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 }
