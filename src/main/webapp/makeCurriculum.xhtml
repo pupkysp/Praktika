@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<h:outputStylesheet name="styles.css" library="css" />
+	<title>EMPRS</title>
+</h:head>
+<h:body>
+	<h1>Mokymo plano sudarymas</h1>
+	<h:form>
+		<h:panelGrid columns="2" cellpadding="5">
+			<h:panelGrid columns="3" cellpadding="5">
+				<p:outputLabel for="vardas" value="Vardas:" />
+				<p:inputText id="vardas" value="#" required="true">
+				</p:inputText>
+			</h:panelGrid>
+			<h:panelGrid columns="3" cellpadding="5">
+				<p:outputLabel for="pavarde" value="Pavardė" />
+				<p:inputText id="pavarde" value="#" required="true">
+				</p:inputText>
+			</h:panelGrid>
+		</h:panelGrid>
+	</h:form>
+	<h:form>
+		<p:growl id="msgs" showDetail="true" />
+		<p:fieldset legend="Privalomieji bendrojo ugdymo branduolio dalykai"
+			style="margin-bottom:20px">
+			<h:panelGrid class="inputForm" columns="3" cellpadding="5">
+				<h:form>
+					<fieldset>
+						<LEGEND>Dorinis ugdymas</LEGEND>
+						<h:panelGrid columns="2" cellpadding="5">
+							<p:outputLabel value="Tikyba (1)" />
+							<h:inputText value="0" size="1" />
+							<p:outputLabel value="Etika (1)" />
+							<h:inputText value="0" size="1" />
+						</h:panelGrid>
+					</fieldset>
+					<h:form>
+						<fieldset>
+							<LEGEND>Matematika</LEGEND>
+							<h:panelGrid columns="2" cellpadding="20">
+								<p:outputLabel value="Matematika (3)" />
+								<h:inputText value="0" size="1" />
+							</h:panelGrid>
+						</fieldset>
+					</h:form>
+				</h:form>
+				<h:form>
+					<fieldset>
+						<LEGEND>Kalbos</LEGEND>
+						<h:panelGrid columns="2" cellpadding="5">
+							<p:outputLabel value="Lietuvių kalba ir literatūra (4)" />
+							<h:inputText value="0" size="1" />
+							<p:outputLabel value="Lietuvių kalba ir literatūra (6)" />
+							<h:inputText value="0" size="1" />
+							<p:outputLabel value="(jeigu gimtoji kalba rusų ar lenkų)" />
+							<br />
+							<p:outputLabel value="Gimtoji rusų" />
+							<h:inputText value="0" size="1" />
+							<p:outputLabel value="Gimtoji lenkų" />
+							<h:inputText value="0" size="1" />
+						</h:panelGrid>
+					</fieldset>
+				</h:form>
+				<h:form>
+					<fieldset>
+						<LEGEND>Užsienio kalbos</LEGEND>
+						<h:panelGrid columns="2" cellpadding="5">
+							<p:outputLabel
+								value="Lietuvių gimtoji - 3 Lietuvių valstybinė - 2" />
+							<br />
+							<p:outputLabel value="Užsienio kalba (anglų)" />
+							<h:inputText value="0" size="1" />
+							<p:outputLabel value="Užsienio kalba (vokiečių)" />
+							<h:inputText value="0" size="1" />
+							<p:outputLabel value="Užsienio kalba (prancūzų)" />
+							<h:inputText value="0" size="1" />
+							<p:outputLabel value="Užsienio kalba (rusų)" />
+							<h:inputText value="0" size="1" />
+						</h:panelGrid>
+					</fieldset>
+				</h:form>
+				<h:form>
+					<fieldset>
+						<LEGEND>Gamtamokslis ugdymas</LEGEND>
+						<h:panelGrid columns="2" cellpadding="5">
+							<p:outputLabel value="Biologija (2)" />
+							<h:inputText value="0" size="1" />
+							<p:outputLabel value="Fizika (2)" />
+							<h:inputText value="0" size="1" />
+							<p:outputLabel value="Chemija (2)" />
+							<h:inputText value="0" size="1" />
+							<p:outputLabel value="Integruotas gamtos mokslų kursas (2)" />
+							<h:inputText value="0" size="1" />
+						</h:panelGrid>
+					</fieldset>
+				</h:form>
+				<h:form>
+					<fieldset>
+						<LEGEND>Socialinis ugdymas</LEGEND>
+						<h:panelGrid columns="2" cellpadding="11">
+							<p:outputLabel value="Istorija (2)" />
+							<h:inputText value="0" size="1" />
+							<p:outputLabel value="Geografija (2)" />
+							<h:inputText value="0" size="1" />
+							<p:outputLabel value="Integruotas soc. mokslų kursas (2)" />
+							<h:inputText value="0" size="1" />
+						</h:panelGrid>
+					</fieldset>
+				</h:form>
+				<h:form>
+					<fieldset>
+						<LEGEND>Kūno kultūra</LEGEND>
+						<h:panelGrid columns="2" cellpadding="11">
+							<p:outputLabel value="Bendroji kūno kultūra (2)" />
+							<h:inputText value="0" size="1" />
+							<p:outputLabel value="Futbolas (2)" />
+							<h:inputText value="0" size="1" />
+							<p:outputLabel value="Krepšinis (2)" />
+							<h:inputText value="0" size="1" />
+						</h:panelGrid>
+					</fieldset>
+				</h:form>
+			</h:panelGrid>
+		</p:fieldset>
+	</h:form>
+	<p:button value="Į pradžią" icon="ui-icon-home"></p:button>
+	<p:button value="Išsaugoti" icon="ui-icon-disk"></p:button>
+</h:body>
+</html>

@@ -45,7 +45,7 @@
    </servlet-mapping>
 
    <welcome-file-list>
-     <welcome-file>faces/main.xhtml</welcome-file>
+     <welcome-file>faces/makeCurriculum.xhtml</welcome-file>
    </welcome-file-list>
 	
 	<context-param>

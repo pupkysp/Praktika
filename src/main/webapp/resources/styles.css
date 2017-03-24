@@ -1,4 +1,4 @@
-
+/* Senas css galima istrinti
 body {
     padding: 14px;
 }
@@ -18,4 +18,11 @@ table tr td,th {
 
 table tr th {
     border-bottom: 2px solid black;
+}
+*/
+
+/* Musu naudojamas css */
+
+.inputForm tBody {
+	vertical-align: top;
 }
