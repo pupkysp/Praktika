@@ -4,7 +4,7 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<h:outputStylesheet name="styles.css"/>
+	<h:outputStylesheet name="makeCurriculum.css" library="css" />
 	<title>EMPRS</title>
 </h:head>
 <h:body>
@@ -34,9 +34,9 @@
 						<LEGEND>Dorinis ugdymas</LEGEND>
 						<h:panelGrid columns="2" cellpadding="5">
 							<p:outputLabel value="Tikyba (1)" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newCompulsorySubjects.religion}" size="1" />
 							<p:outputLabel value="Etika (1)" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newCompulsorySubjects.ethic}" size="1" />
 						</h:panelGrid>
 					</fieldset>
 					<h:form>
@@ -44,7 +44,7 @@
 							<LEGEND>Matematika</LEGEND>
 							<h:panelGrid columns="2" cellpadding="20">
 								<p:outputLabel value="Matematika (3)" />
-								<h:inputText value="0" size="1" />
+								<h:inputText value="#{curriculumData.newCompulsorySubjects.mathematics}" size="1" />
 							</h:panelGrid>
 						</fieldset>
 					</h:form>
@@ -54,15 +54,15 @@
 						<LEGEND>Kalbos</LEGEND>
 						<h:panelGrid columns="2" cellpadding="5">
 							<p:outputLabel value="Lietuvių kalba ir literatūra (4)" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newCompulsorySubjects.lithuanian_A}" size="1" />
 							<p:outputLabel value="Lietuvių kalba ir literatūra (6)" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newCompulsorySubjects.lithuanian_B}" size="1" />
 							<p:outputLabel value="(jeigu gimtoji kalba rusų ar lenkų)" />
 							<br />
 							<p:outputLabel value="Gimtoji rusų" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newCompulsorySubjects.native_Russian}" size="1" />
 							<p:outputLabel value="Gimtoji lenkų" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newCompulsorySubjects.native_Polish}" size="1" />
 						</h:panelGrid>
 					</fieldset>
 				</h:form>
@@ -74,13 +74,13 @@
 								value="Lietuvių gimtoji - 3 Lietuvių valstybinė - 2" />
 							<br />
 							<p:outputLabel value="Užsienio kalba (anglų)" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newCompulsorySubjects.foreign_English}" size="1" />
 							<p:outputLabel value="Užsienio kalba (vokiečių)" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newCompulsorySubjects.foreign_German}" size="1" />
 							<p:outputLabel value="Užsienio kalba (prancūzų)" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newCompulsorySubjects.foreign_French}" size="1" />
 							<p:outputLabel value="Užsienio kalba (rusų)" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newCompulsorySubjects.foreign_Russian}" size="1" />
 						</h:panelGrid>
 					</fieldset>
 				</h:form>
@@ -89,13 +89,13 @@
 						<LEGEND>Gamtamokslis ugdymas</LEGEND>
 						<h:panelGrid columns="2" cellpadding="5">
 							<p:outputLabel value="Biologija (2)" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newCompulsorySubjects.biology}" size="1" />
 							<p:outputLabel value="Fizika (2)" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newCompulsorySubjects.physics}" size="1" />
 							<p:outputLabel value="Chemija (2)" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newCompulsorySubjects.chemistry}" size="1" />
 							<p:outputLabel value="Integruotas gamtos mokslų kursas (2)" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newCompulsorySubjects.natural_Sciences}" size="1" />
 						</h:panelGrid>
 					</fieldset>
 				</h:form>
@@ -104,11 +104,11 @@
 						<LEGEND>Socialinis ugdymas</LEGEND>
 						<h:panelGrid columns="2" cellpadding="11">
 							<p:outputLabel value="Istorija (2)" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newCompulsorySubjects.history}" size="1" />
 							<p:outputLabel value="Geografija (2)" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newCompulsorySubjects.geography}" size="1" />
 							<p:outputLabel value="Integruotas soc. mokslų kursas (2)" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newCompulsorySubjects.social}" size="1" />
 						</h:panelGrid>
 					</fieldset>
 				</h:form>
@@ -117,11 +117,11 @@
 						<LEGEND>Kūno kultūra</LEGEND>
 						<h:panelGrid columns="2" cellpadding="11">
 							<p:outputLabel value="Bendroji kūno kultūra (2)" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newCompulsorySubjects.physical_Education}" size="1" />
 							<p:outputLabel value="Futbolas (2)" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newCompulsorySubjects.football}" size="1" />
 							<p:outputLabel value="Krepšinis (2)" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newCompulsorySubjects.basketball}" size="1" />
 						</h:panelGrid>
 					</fieldset>
 				</h:form>
@@ -139,21 +139,21 @@
 						<LEGEND>Pasirenkamieji dalykai</LEGEND>
 						<h:panelGrid columns="2" cellpadding="7">
 							<p:outputLabel value="Rusų kalba II (2)" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newOptionalSubjects.russian_II}" size="1" />
 							<p:outputLabel value="Anglų kalba II (2)" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newOptionalSubjectss.english_II}" size="1" />
 							<p:outputLabel value="Vokiečių kalba II (2)" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newOptionalSubjects.german_II}" size="1" />
 							<p:outputLabel value="Dizainas (2)" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newOptionalSubjects.design}" size="1" />
 							<p:outputLabel value="Dailė (2)" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newOptionalSubjects.art}" size="1" />
 							<p:outputLabel value="Teatras (2)" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newOptionalSubjects.theater}" size="1" />
 							<p:outputLabel value="Muzika (2)" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newOptionalSubjects.music}" size="1" />
 							<p:outputLabel value="Informacinės technologijos (1)" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newOptionalSubjects.information_Technology}" size="1" />
 						</h:panelGrid>
 					</fieldset>
 				</h:form>
@@ -162,21 +162,21 @@
 						<LEGEND>Išplėstinis dalykų kursas</LEGEND>
 						<h:panelGrid columns="2" cellpadding="7">
 							<p:outputLabel value="Lietuvių gimtoji kalba (išpl.) (1)" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newOptionalSubjects.advanced_Lithuanian_Native}" size="1" />
 							<p:outputLabel value="Lietuvių valstybinė kalba (išpl.) (1)" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newOptionalSubjects.advanced_Lithuanian_State}" size="1" />
 							<p:outputLabel value="Užsienio kalba (išpl.) (1 arba 2)" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newOptionalSubjects.advanced_Foreign_Language}" size="1" />
 							<p:outputLabel value="Istorija (išpl.) (1)" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newOptionalSubjects.advanced_History}" size="1" />
 							<p:outputLabel value="Matematika (išpl.) (1)" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newOptionalSubjects.advanced_Mathematics}" size="1" />
 							<p:outputLabel value="Biologija (išpl.) (1)" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newOptionalSubjects.advanced_Biology}" size="1" />
 							<p:outputLabel value="Fizika (išpl.) (1)" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newOptionalSubjects.advanced_Physics}" size="1" />
 							<p:outputLabel value="Chemija (išpl.) (1)" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newOptionalSubjects.advanced_Chemistry}" size="1" />
 						</h:panelGrid>
 					</fieldset>
 				</h:form>
@@ -185,23 +185,23 @@
 						<LEGEND>Dalykų moduliai</LEGEND>
 						<h:panelGrid columns="2" cellpadding="5">
 							<p:outputLabel value="Chemijos modulis" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newOptionalSubjects.chemistry_Module}" size="1" />
 							<p:outputLabel value="Biologijos modulis I" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newOptionalSubjects.biology_Module_I}" size="1" />
 							<p:outputLabel value="Biologijos modulis II" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newOptionalSubjects.biology_Module_II}" size="1" />
 							<p:outputLabel value="Fizikos modulis I" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newOptionalSubjects.physics_Module_I}" size="1" />
 							<p:outputLabel value="Fizikos modulis II" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newOptionalSubjects.physics_Module_II}" size="1" />
 							<p:outputLabel value="Fizikos modulis III" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newOptionalSubjects.physics_Module_III}" size="1" />
 							<p:outputLabel value="Matematikos modulis I" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newOptionalSubjects.mathematics_Module_I}" size="1" />
 							<p:outputLabel value="Matematikos modulis II" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newOptionalSubjects.mathematics_Module_II}" size="1" />
 							<p:outputLabel value="Matematikos modulis III" />
-							<h:inputText value="0" size="1" />
+							<h:inputText value="#{curriculumData.newOptionalSubjects.mathematics_Module_III}" size="1" />
 						</h:panelGrid>
 					</fieldset>
 				</h:form>
@@ -212,7 +212,7 @@
 		<h:panelGrid class="inputForm" columns="2" cellpadding="5">
 			<h:panelGrid columns="2" cellpadding="5">
 				<p:outputLabel value="Būreliai" />
-				<p:selectOneMenu id="country" value="#" style="width:150px">
+				<p:selectOneMenu id="country" value="#{curriculumData.newOptionalSubjects.club}" style="width:150px">
 				<f:selectItem itemLabel=" " itemValue="null" />
 					<f:selectItem itemLabel="Krepšinis" itemValue="krepsinis" />
 					<f:selectItem itemLabel="Futbolas" itemValue="futbolas" />
@@ -228,7 +228,7 @@
 			</h:panelGrid>
 		</h:panelGrid>
 	</h:form>
-	<p:button value="Į pradžią" icon="ui-icon-home"></p:button>
-	<p:button value="Išsaugoti" icon="ui-icon-disk"></p:button>
+	<p:button value="Į pradžią" icon="ui-icon-home" action="main"></p:button>
+	<p:button value="Išsaugoti" icon="ui-icon-disk" action="#{curriculumPage.addNew()}"></p:button>
 </h:body>
 </html>

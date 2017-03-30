@@ -1,4 +1,4 @@
-package lt.vtvpmc.emprs.repositories.jpa;
+package lt.vtvpmc.emprs.repositories.dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
