@@ -21,9 +21,11 @@
 		</h:panelGrid>
 	</h:form>
 
-	<div class="continent">
+
+      <h:form styleClass="margin">
+      <div class="continent">
 		<div class="leftContinent">
-			<h:form styleClass="margin">
+
 				<p:fieldset legend="Informacija apie mokinį:"
 					style="width:420px; color:#585858">
 					<h:panelGrid columns="2">
@@ -67,22 +69,22 @@
 						</p:selectOneMenu>
 					</h:panelGrid>
 				</p:fieldset>
-			</h:form>
 
-			<h:form styleClass="margin">
+
+
 				<p:fieldset legend="Duomenys apie tėvus/globėjus:"
 					style="width:420px; color:#585858">
 					<p:fieldset legend="Tėvas:" toggleable="true" toggleSpeed="300"
 						style="width:380px; color:#585858">
 						<h:panelGrid columns="2">
 							<h:outputLabel value="Vardas: "></h:outputLabel>
-							<p:inputText value="" />
+							<p:inputText  />
 							<h:outputLabel value="Pavardė: "></h:outputLabel>
-							<p:inputText value="" />
+							<p:inputText  />
 							<h:outputLabel value="Adresas: "></h:outputLabel>
-							<p:inputText value="" />
+							<p:inputText  />
 							<h:outputLabel value="Telefonas: "></h:outputLabel>
-							<p:inputMask value="" mask="+370 9 999 9999" />
+							<p:inputMask  mask="+370 9 999 9999" />
 						</h:panelGrid>
 					</p:fieldset>
 
@@ -90,13 +92,13 @@
 						style="width:380px; color:#585858">
 						<h:panelGrid columns="2">
 							<h:outputLabel value="Vardas: "></h:outputLabel>
-							<p:inputText value="" />
+							<p:inputText  />
 							<h:outputLabel value="Pavardė: "></h:outputLabel>
-							<p:inputText value="" />
+							<p:inputText  />
 							<h:outputLabel value="Adresas: "></h:outputLabel>
-							<p:inputText value="" />
+							<p:inputText  />
 							<h:outputLabel value="Telefonas: "></h:outputLabel>
-							<p:inputMask value="" mask="+370 9 999 9999" />
+							<p:inputMask  mask="+370 9 999 9999" />
 						</h:panelGrid>
 					</p:fieldset>
 
@@ -104,61 +106,61 @@
 						toggleSpeed="300" style="width:380px; color:#585858">
 						<h:panelGrid columns="2">
 							<h:outputLabel value="Vardas: "></h:outputLabel>
-							<p:inputText value="" />
+							<p:inputText  />
 							<h:outputLabel value="Pavardė: "></h:outputLabel>
-							<p:inputText value="" />
+							<p:inputText  />
 							<h:outputLabel value="Adresas: "></h:outputLabel>
-							<p:inputText value="" />
+							<p:inputText  />
 							<h:outputLabel value="Telefonas: "></h:outputLabel>
-							<p:inputMask value="" mask="+370 9 999 9999" />
+							<p:inputMask  mask="+370 9 999 9999" />
 						</h:panelGrid>
 					</p:fieldset>
 				</p:fieldset>
-			</h:form>
+
 		</div>
 
 		<div class="rightContinent">
-			<h:form styleClass="margin">
+
 				<p:fieldset legend="Pridedama prie prašymo:"
 					style="width:520px; color:#585858">
 					<h:panelGrid columns="2">
 						<h:outputText value="Išsilavinimo dokumentas: " />
-						<p:selectBooleanCheckbox value="" />
+						<p:selectBooleanCheckbox  />
 						<h:outputText value="Sveikatos pažymėjimas: " />
-						<p:selectBooleanCheckbox value="" />
+						<p:selectBooleanCheckbox  />
 						<h:outputText value="Nuotraukos 3x4 (2-4 vnt.): " />
-						<p:selectBooleanCheckbox value="" />
+						<p:selectBooleanCheckbox  />
 						<h:outputText value="Paso kopija (tapatybės kortelės kopija): " />
-						<p:selectBooleanCheckbox value="" />
+						<p:selectBooleanCheckbox  />
 						<h:outputText value="Šauktinio liudijimas: " />
-						<p:selectBooleanCheckbox value="" />
+						<p:selectBooleanCheckbox  />
 						<h:outputText value="Stojamasis mokestis: " />
-						<p:selectBooleanCheckbox value="" />
+						<p:selectBooleanCheckbox  />
 					</h:panelGrid>
 				</p:fieldset>
-			</h:form>
 
-			<h:form styleClass="margin">
+
+
 				<p:fieldset
 					legend="Jei mokosi antrą kartą, papildomai pateikti šiuos duomenis:"
 					style="width:520px; color:#585858">
 					<h:panelGrid columns="2">
 						<h:outputLabel value="Įgyta specialybė: "></h:outputLabel>
-						<p:inputText value="" />
+						<p:inputText  />
 						<h:outputLabel value="Institucijos pavadinimas: "></h:outputLabel>
-						<p:inputText value="" />
+						<p:inputText  />
 						<h:outputLabel for="institution" value="Institucijos tipas: "></h:outputLabel>
 						<p:selectOneMenu id="institution" value="kintamasis 'institution'">
 							<f:selectItem itemLabel="Institutita" itemValue="" />
 							<f:selectItems value="kintamasis 'institutionList'" />
 						</p:selectOneMenu>
 						<h:outputLabel value="Baigimo metai: "></h:outputLabel>
-						<p:inputMask value="" mask="9999-99-99" />
+						<p:inputMask  mask="9999-99-99" />
 					</h:panelGrid>
 				</p:fieldset>
-			</h:form>
 
-			<h:form styleClass="margin">
+
+
 				<p:fieldset legend="Prašymas (informacija apie prašymą):"
 					style="width:520px; color:#585858">
 					<h:panelGrid columns="2">
@@ -172,21 +174,21 @@
 						<p:inputText value="#{studentData.newRequest.stage}" />
 					</h:panelGrid>
 				</p:fieldset>
-			</h:form>
 
-			<h:form styleClass="moreInfo">
+
+
 				<p:fieldset legend="Papildoma informacija:"
 					style="width:520px; color:#585858">
 					<h:panelGrid columns="2" cellpadding="15">
 						<h:outputText value="Ar reikalingas bendrabutis: " />
-						<p:selectOneRadio value="">
+						<p:selectOneRadio >
 							<f:selectItem itemValue="Taip" itemLabel="Taip" />
 							<f:selectItem itemValue="Ne" itemLabel="Ne" />
 						</p:selectOneRadio>
 
 						<h:outputText for="info"
 							value="Iš kur sužinojote apie mūsų įstaigą: " />
-						<p:selectManyCheckbox value="#{arrey.kintamasi}" columns="2"
+						<p:selectManyCheckbox columns="2"
 							layout="grid">
 							<f:selectItem itemValue="draugu" itemLabel="Draugų" />
 							<f:selectItem itemValue="interneto" itemLabel="Interneto" />
@@ -200,7 +202,7 @@
 						</p:selectManyCheckbox>
 					</h:panelGrid>
 				</p:fieldset>
-			</h:form>
+
 
 			<h:form styleClass="margin">
 				<p:fieldset legend="Dokumentai..."
@@ -213,8 +215,11 @@
 					</h:panelGrid>
 				</p:fieldset>
 			</h:form>
-		<p:button action="#{studentPage.addNew()}" value="Add new"></p:button>
+		
+						<h:commandButton action="#{studentPage.addNew()}" value="Add new"
+					update="grid"></h:commandButton>
+		  </div>
 		</div>
-	</div>
+	</h:form>
 </h:body>
 </html>
