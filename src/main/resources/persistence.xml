@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence>
    <persistence-unit name="persistence-unit">
-       <class>lt.vtvpmc.ems.pw.entities.Student</class>
+       <class>lt.vtvpmc.emprs.entities.CompulsorySubjects</class>
        <properties>
            <property name="hibernate.hbm2ddl.auto" value="update"/>
        </properties>
