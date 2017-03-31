@@ -6,6 +6,7 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<class>entities.Student</class>
 		<class>entities.Request</class>
+		<class>entities.CurriculumSubjects</class>
 <!-- 		<class>entities.Education</class> -->
 <!-- 		<class>entities.ParentInfo</class> -->
 		<properties>

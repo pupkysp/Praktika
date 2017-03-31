@@ -1,11 +1,11 @@
 package lt.vtvpmc.emprs.repositories;
 
-import lt.vtvpmc.emprs.entities.CompulsorySubjects;
+import lt.vtvpmc.emprs.entities.CurriculumSubjects;
 
 public interface CurriculumRepo {
 
-public void save(CompulsorySubjects CompulsorySubjects);
+public void save(CurriculumSubjects CurriculumSubjects);
 	
-public void delete(CompulsorySubjects CompulsorySubjects);
+public void delete(CurriculumSubjects CurriculumSubjects);
 
 }

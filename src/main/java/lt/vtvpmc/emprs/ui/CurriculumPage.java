@@ -4,8 +4,7 @@ import java.io.Serializable;
 
 import javax.validation.Valid;
 
-import lt.vtvpmc.emprs.entities.CompulsorySubjects;
-import lt.vtvpmc.emprs.entities.OptionalSubjects;
+import lt.vtvpmc.emprs.entities.CurriculumSubjects;
 import lt.vtvpmc.emprs.repositories.CurriculumRepo;
 
 public class CurriculumPage {
@@ -16,38 +15,26 @@ public class CurriculumPage {
 		private static final long serialVersionUID = -8355552873418690458L;
 
 		@Valid
-		private CompulsorySubjects newCompulsorySubjects;
-
-		@Valid
-		private OptionalSubjects newOptionalSubjects;
+		private CurriculumSubjects newCurriculumSubjects;
 
 		public void init() {
-			newCompulsorySubjects = new CompulsorySubjects();
-			newOptionalSubjects = new OptionalSubjects();
+			newCurriculumSubjects = new CurriculumSubjects();
 		}
 
-		public CompulsorySubjects getNewCompulsorySubjects() {
-			return newCompulsorySubjects;
+		public CurriculumSubjects getNewCompulsorySubjects() {
+			return newCurriculumSubjects;
 		}
 
-		public void setNewCompulsorySubjects(CompulsorySubjects newCompulsorySubjects) {
-			this.newCompulsorySubjects = newCompulsorySubjects;
-		}
-
-		public OptionalSubjects getNewOptionalSubjects() {
-			return newOptionalSubjects;
-		}
-
-		public void setNewOptionalSubjects(OptionalSubjects newOptionalSubjects) {
-			this.newOptionalSubjects = newOptionalSubjects;
+		public void setNewCompulsorySubjects(CurriculumSubjects newCompulsorySubjects) {
+			this.newCurriculumSubjects = newCompulsorySubjects;
 		}
 
 		private CurriculumData data;
 		private CurriculumRepo curriculumRepo;
 
 		public String addNew() {
-			curriculumRepo.save(data.newCompulsorySubjects);
-			data.newCompulsorySubjects = new CompulsorySubjects();
+			curriculumRepo.save(data.newCurriculumSubjects);
+			data.newCurriculumSubjects = new CurriculumSubjects();
 			return NAV_SHOW_INDEX;
 		}
 
