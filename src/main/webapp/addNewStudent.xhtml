@@ -25,38 +25,47 @@
 			<p:fieldset styleClass="margin" legend="Informacija apie mokinį:"
 				style="width:420px; color:#585858">
 				<h:panelGrid columns="2">
+
 					<p:outputLabel value="Vardas: "></p:outputLabel>
 					<p:inputText value="#{studentData.newStudent.firstName}" />
+
 					<h:outputLabel value="Pavardė: "></h:outputLabel>
 					<p:inputText value="#{studentData.newStudent.lastName}" />
+
 					<h:outputLabel value="Gimimo data: "></h:outputLabel>
-					<h:inputText value="#{studentData.newStudent.dateOfBirth}">
-						<f:convertDateTime pattern="yyyy-MM-dd" />
-					</h:inputText>
+					<p:calendar pattern="yyyy-MM-dd" navigator="true" mask="9999-99-99"
+						value="#{studentData.newStudent.dateOfBirth}" />
+
 					<h:outputLabel value="Adresas: "></h:outputLabel>
 					<p:inputText value="#{studentData.newStudent.address}" />
+
 					<p:outputLabel for="savivaldybe" value="Savivaldybė: " />
 					<p:selectOneMenu id="savivaldybe"
 						value="kintamasis 'multicipality'">
 						<f:selectItem itemLabel="Savivaldybė" itemValue="" />
 						<f:selectItems value="kintamasis 'multicipalityList'" />
 					</p:selectOneMenu>
+
 					<h:outputLabel value="Telefonas: "></h:outputLabel>
 					<p:inputMask value="#{studentData.newStudent.phoneNumber}"
 						mask="+370 9 999 9999" />
+
 					<h:outputLabel value="Elektroninis paštas: "></h:outputLabel>
 					<p:inputText value="#{studentData.newStudent.email}" />
+
 					<h:outputLabel for="education" value="Išsilavinimas: "></h:outputLabel>
 					<p:selectOneMenu id="education" value="kintamasis 'education'">
 						<f:selectItem itemLabel="Išsilavinimas" itemValue="" />
 						<f:selectItems value="kintamasis 'educationList'" />
 					</p:selectOneMenu>
+
 					<h:outputLabel value="Baigė mokymo įstaigą: "></h:outputLabel>
 					<p:inputText value="#{studentData.newStudent.school}" />
+
 					<h:outputLabel value="Mokyklos baigimo metai: "></h:outputLabel>
-					<h:inputText value="#{studentData.newStudent.schoolGraduationYear}">
-						<f:convertDateTime pattern="yyyy-MM-dd" />
-					</h:inputText>
+					<p:calendar pattern="yyyy-MM-dd" navigator="true" mask="9999-99-99"
+						value="#{studentData.newStudent.schoolGraduationYear}" />
+
 					<h:outputLabel for="maritalStatus"
 						value="Moksleivio šeimyninė padėtis: "></h:outputLabel>
 					<p:selectOneMenu id="maritalStatus"
@@ -64,6 +73,7 @@
 						<f:selectItem itemLabel=";)" itemValue="" />
 						<f:selectItems value="kintamasis 'maritalStatList'" />
 					</p:selectOneMenu>
+
 				</h:panelGrid>
 			</p:fieldset>
 
@@ -149,7 +159,7 @@
 						<f:selectItems value="kintamasis 'institutionList'" />
 					</p:selectOneMenu>
 					<h:outputLabel value="Baigimo metai: "></h:outputLabel>
-					<p:inputMask mask="9999-99-99" />
+					<p:calendar pattern="yyyy-MM-dd" navigator="true" mask="9999-99-99" />
 				</h:panelGrid>
 			</p:fieldset>
 
@@ -158,9 +168,8 @@
 				style="width:520px; color:#585858">
 				<h:panelGrid columns="2">
 					<h:outputLabel value="Priėmimo prašymo data: "></h:outputLabel>
-					<h:inputText value="#{studentData.newRequest.requestdate}">
-						<f:convertDateTime pattern="yyyy-MM-dd" />
-					</h:inputText>
+					<p:calendar pattern="yyyy-MM-dd" navigator="true" mask="9999-99-99"
+						value="#{studentData.newRequest.requestdate}" />
 					<h:outputLabel value="Grupė: "></h:outputLabel>
 					<p:inputText value="#{studentData.newRequest.unit}" />
 					<h:outputLabel value="Pakopa: "></h:outputLabel>
