@@ -31,7 +31,6 @@ body {
 
 .leftContinent {
 	display: inline;
-	text-align: right;
 	float: left;
 	background: #57FD04;
 }
@@ -50,6 +49,11 @@ body {
 .margin {
 	margin: 0px 5px 10px 5px;
 	background: #ffffff;
+	text-align: left;
+}
+
+.textRight{
+	text-align:right;
 }
 
 .moreInfo {
@@ -60,7 +64,7 @@ body {
 
 .buttonAdd {
 	background: linear-gradient(to bottom, #20e6ae 0%, #08f036 100%);
-	height: 66px; 
+	height: 62px; 
 	width: 400px;
 	margin: 5px 5px 5px 5px;
 	font-size: 25px;

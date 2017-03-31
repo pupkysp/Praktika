@@ -23,8 +23,8 @@
 		<div class="leftContinent">
 
 			<p:fieldset styleClass="margin" legend="Informacija apie mokinį:"
-				style="width:420px; color:#585858">
-				<h:panelGrid columns="2">
+				style="width:410px; color:#585858">
+				<h:panelGrid styleClass="textRight" columns="2">
 
 					<p:outputLabel value="Vardas: "></p:outputLabel>
 					<p:inputText value="#{studentData.newStudent.firstName}" />
@@ -79,10 +79,10 @@
 
 			<p:fieldset styleClass="margin"
 				legend="Duomenys apie tėvus/globėjus:"
-				style="width:420px; color:#585858">
+				style="width:410px; color:#585858">
 				<p:fieldset styleClass="margin" legend="Tėvas:" toggleable="true"
-					toggleSpeed="300" style="width:380px; color:#585858">
-					<h:panelGrid columns="2">
+					toggleSpeed="300" style="width:360px; color:#585858">
+					<h:panelGrid styleClass="textRight" columns="2">
 						<h:outputLabel value="Vardas: "></h:outputLabel>
 						<p:inputText />
 						<h:outputLabel value="Pavardė: "></h:outputLabel>
@@ -95,8 +95,8 @@
 				</p:fieldset>
 
 				<p:fieldset styleClass="margin" legend="Motina:" toggleable="true"
-					toggleSpeed="300" style="width:380px; color:#585858">
-					<h:panelGrid columns="2">
+					toggleSpeed="300" style="width:360px; color:#585858">
+					<h:panelGrid styleClass="textRight" columns="2">
 						<h:outputLabel value="Vardas: "></h:outputLabel>
 						<p:inputText />
 						<h:outputLabel value="Pavardė: "></h:outputLabel>
@@ -110,8 +110,8 @@
 
 				<p:fieldset styleClass="margin" legend="Globėjas(-a)"
 					toggleable="true" toggleSpeed="300"
-					style="width:380px; color:#585858">
-					<h:panelGrid columns="2">
+					style="width:360px; color:#585858">
+					<h:panelGrid styleClass="textRight" columns="2">
 						<h:outputLabel value="Vardas: "></h:outputLabel>
 						<p:inputText />
 						<h:outputLabel value="Pavardė: "></h:outputLabel>
@@ -129,7 +129,7 @@
 
 			<p:fieldset styleClass="margin" legend="Pridedama prie prašymo:"
 				style="width:520px; color:#585858">
-				<h:panelGrid columns="2">
+				<h:panelGrid styleClass="textRight" columns="2">
 					<h:outputText value="Išsilavinimo dokumentas: " />
 					<p:selectBooleanCheckbox />
 					<h:outputText value="Sveikatos pažymėjimas: " />
@@ -148,7 +148,7 @@
 			<p:fieldset styleClass="margin"
 				legend="Jei mokosi antrą kartą, papildomai pateikti šiuos duomenis:"
 				style="width:520px; color:#585858">
-				<h:panelGrid columns="2">
+				<h:panelGrid styleClass="textRight" columns="2">
 					<h:outputLabel value="Įgyta specialybė: "></h:outputLabel>
 					<p:inputText />
 					<h:outputLabel value="Institucijos pavadinimas: "></h:outputLabel>
@@ -166,7 +166,7 @@
 			<p:fieldset styleClass="margin"
 				legend="Prašymas (informacija apie prašymą):"
 				style="width:520px; color:#585858">
-				<h:panelGrid columns="2">
+				<h:panelGrid styleClass="textRight" columns="2">
 					<h:outputLabel value="Priėmimo prašymo data: "></h:outputLabel>
 					<p:calendar pattern="yyyy-MM-dd" navigator="true" mask="9999-99-99"
 						value="#{studentData.newRequest.requestdate}" />
@@ -202,17 +202,20 @@
 				</h:panelGrid>
 			</p:fieldset>
 
-			<p:fieldset legend="Dokumentai..." style="width:520px; color:#585858">
-				<h:panelGrid columns="2" cellpadding="15">
+			<p:fieldset styleClass="margin" legend="Dokumentai..."
+				style="width:520px; color:#585858">
+				<h:panelGrid styleClass="textRight" columns="2" cellpadding="15">
 					<h:outputText value="Mokinys atsiemė dokumentus. " />
 					<p:selectBooleanButton onLabel="Taip" offLabel="Ne"
 						onIcon="ui-icon-check" offIcon="ui-icon-close" style="width:100px" />
 				</h:panelGrid>
 			</p:fieldset>
 
-			<h:commandButton styleClass="buttonAdd"
-				action="#{studentPage.addNew()}" value="Pridėti naują mokinį"
-				update="grid"></h:commandButton>
+			<h:form styleClass="textRight">
+				<h:commandButton styleClass="buttonAdd"
+					action="#{studentPage.addNew()}" value="Pridėti naują mokinį"
+					update="grid"></h:commandButton>
+			</h:form>
 		</div>
 	</h:form>
 </h:body>
