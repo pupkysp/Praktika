@@ -26,24 +26,31 @@
 	</bean>
 
 
-<!-- 	<bean id="educationRepo" class="lt.vtvpmc.emprs.repositories.dao.EducationDao" -->
-<!-- 		scope="singleton"> -->
-<!-- 		<property name="entityManagerFactory" ref="entityManagerFactory" /> -->
-<!-- 	</bean> -->
+	<bean id="educationRepo" class="lt.vtvpmc.emprs.repositories.dao.EducationDao"
+		scope="singleton">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
 
 	<bean id="requestRepo" class="lt.vtvpmc.emprs.repositories.dao.RequestDao" scope="singleton">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 
-<!-- 	<bean id="parentInfoRepo" class="lt.vtvpmc.emprs.repositories.dao.ParentInfoDao" -->
-<!-- 		scope="singleton"> -->
-<!-- 		<property name="entityManagerFactory" ref="entityManagerFactory" /> -->
-<!-- 	</bean> -->
+	<bean id="parentInfoRepo" class="lt.vtvpmc.emprs.repositories.dao.ParentInfoDao"
+		scope="singleton">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+	
+	<bean id="studentInfoRepo" class="lt.vtvpmc.emprs.repositories.dao.StudentInfoDao"
+		scope="singleton">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
 
 
 	<!-- ui -->
 
 
+<!-- 	<bean id="listBean" class="lt.vtvpmc.emprs.ui.ListBean" scope="request"/> -->
+		
 	<bean id="studentData" class="lt.vtvpmc.emprs.ui.StudentPage.StudentData" scope="session"
 		init-method="init" />
 
@@ -51,6 +58,9 @@
 		<property name="data" ref="studentData"></property>
 		<property name="studentRepo" ref="studentRepo"></property>
 		<property name="requestRepo" ref="requestRepo"></property>
+		<property name="parentInfoRepo" ref="parentInfoRepo"></property>
+		<property name="studentInfoRepo" ref="studentInfoRepo"></property>
+		<property name="educationRepo" ref="educationRepo"></property>
 	</bean>
 
 </beans>

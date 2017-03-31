@@ -33,37 +33,54 @@
 					<h:inputText value="#{studentData.newStudent.dateOfBirth}">
 						<f:convertDateTime pattern="yyyy-MM-dd" />
 					</h:inputText>
+					
 					<h:outputLabel value="Adresas: "></h:outputLabel>
-					<p:inputText value="#{studentData.newStudent.address}" />
+					<p:inputText value="#{studentData.newStudentInfo.address}" />
+					
+					
+					
 					<p:outputLabel for="savivaldybe" value="Savivaldybė: " />
 					<p:selectOneMenu id="savivaldybe"
-						value="kintamasis 'multicipality'">
+						value="#{studentData.newStudentInfo.municipality}">
 						<f:selectItem itemLabel="Savivaldybė" itemValue="" />
-						<f:selectItems value="kintamasis 'multicipalityList'" />
+						<f:selectItems value="#{studentPage.municipalityMap()}" />
 					</p:selectOneMenu>
+					
+					
 					<h:outputLabel value="Telefonas: "></h:outputLabel>
-					<p:inputMask value="#{studentData.newStudent.phoneNumber}"
+					<p:inputMask value="#{studentData.newStudentInfo.phoneNumber}"
 						mask="+370 9 999 9999" />
 					<h:outputLabel value="Elektroninis paštas: "></h:outputLabel>
-					<p:inputText value="#{studentData.newStudent.email}" />
-					<h:outputLabel for="education" value="Išsilavinimas: "></h:outputLabel>
-					<p:selectOneMenu id="education" value="kintamasis 'education'">
+					<p:inputText value="#{studentData.newStudentInfo.email}" />
+					
+					
+					
+					<h:outputLabel for="education" value="Išsilavinimas: "></h:outputLabel>			
+					<p:selectOneMenu id="education" value="#{studentData.newEducation.education}">
 						<f:selectItem itemLabel="Išsilavinimas" itemValue="" />
-						<f:selectItems value="kintamasis 'educationList'" />
+						<f:selectItems value="#{studentPage.educationMap()}" />
 					</p:selectOneMenu>
+					
+					
 					<h:outputLabel value="Baigė mokymo įstaigą: "></h:outputLabel>
-					<p:inputText value="#{studentData.newStudent.school}" />
+					<p:inputText value="#{studentData.newEducation.school}" />
 					<h:outputLabel value="Mokyklos baigimo metai: "></h:outputLabel>
-					<h:inputText value="#{studentData.newStudent.schoolGraduationYear}">
+					<h:inputText value="#{studentData.newEducation.schoolGraduationYear}">
 						<f:convertDateTime pattern="yyyy-MM-dd" />
 					</h:inputText>
+					
+					
+					
+					
 					<h:outputLabel for="maritalStatus"
 						value="Moksleivio šeimyninė padėtis: "></h:outputLabel>
 					<p:selectOneMenu id="maritalStatus"
-						value="kintamasis 'maritalStatus'">
-						<f:selectItem itemLabel=";)" itemValue="" />
-						<f:selectItems value="kintamasis 'maritalStatList'" />
+						value="#{studentData.newStudentInfo.maritalStatus}">
+						<f:selectItem itemLabel="Šeimyninė padėtis" itemValue="" />
+						<f:selectItems value="#{studentPage.maritalStatusMap()}" />
 					</p:selectOneMenu>
+					
+					
 				</h:panelGrid>
 			</p:fieldset>
 
@@ -74,13 +91,13 @@
 					toggleSpeed="300" style="width:380px; color:#585858">
 					<h:panelGrid columns="2">
 						<h:outputLabel value="Vardas: "></h:outputLabel>
-						<p:inputText />
+						<p:inputText value="#{studentData.newParentInfo.fatherFirstName}" />
 						<h:outputLabel value="Pavardė: "></h:outputLabel>
-						<p:inputText />
+						<p:inputText value="#{studentData.newParentInfo.fatherLastName}" />
 						<h:outputLabel value="Adresas: "></h:outputLabel>
-						<p:inputText />
+						<p:inputText value="#{studentData.newParentInfo.fatherAddress}" />
 						<h:outputLabel value="Telefonas: "></h:outputLabel>
-						<p:inputMask mask="+370 9 999 9999" />
+						<p:inputMask value="#{studentData.newParentInfo.fatherPhone}" mask="+370 9 999 9999" />
 					</h:panelGrid>
 				</p:fieldset>
 
@@ -88,13 +105,13 @@
 					toggleSpeed="300" style="width:380px; color:#585858">
 					<h:panelGrid columns="2">
 						<h:outputLabel value="Vardas: "></h:outputLabel>
-						<p:inputText />
+						<p:inputText value="#{studentData.newParentInfo.motherFirstName}" />
 						<h:outputLabel value="Pavardė: "></h:outputLabel>
-						<p:inputText />
+						<p:inputText value="#{studentData.newParentInfo.motherLastName}" />
 						<h:outputLabel value="Adresas: "></h:outputLabel>
-						<p:inputText />
+						<p:inputText value="#{studentData.newParentInfo.motherAddress}" />
 						<h:outputLabel value="Telefonas: "></h:outputLabel>
-						<p:inputMask mask="+370 9 999 9999" />
+						<p:inputMask value="#{studentData.newParentInfo.motherPhone}" mask="+370 9 999 9999" />
 					</h:panelGrid>
 				</p:fieldset>
 
@@ -103,13 +120,13 @@
 					style="width:380px; color:#585858">
 					<h:panelGrid columns="2">
 						<h:outputLabel value="Vardas: "></h:outputLabel>
-						<p:inputText />
+						<p:inputText value="#{studentData.newParentInfo.guardianFirstName}" />
 						<h:outputLabel value="Pavardė: "></h:outputLabel>
-						<p:inputText />
+						<p:inputText value="#{studentData.newParentInfo.guardianLastName}" />
 						<h:outputLabel value="Adresas: "></h:outputLabel>
-						<p:inputText />
+						<p:inputText value="#{studentData.newParentInfo.guardianAddress}" />
 						<h:outputLabel value="Telefonas: "></h:outputLabel>
-						<p:inputMask mask="+370 9 999 9999" />
+						<p:inputMask value="#{studentData.newParentInfo.guardianPhone}" mask="+370 9 999 9999" />
 					</h:panelGrid>
 				</p:fieldset>
 			</p:fieldset>
@@ -140,16 +157,20 @@
 				style="width:520px; color:#585858">
 				<h:panelGrid columns="2">
 					<h:outputLabel value="Įgyta specialybė: "></h:outputLabel>
-					<p:inputText />
+					<p:inputText value="#{studentData.newEducation.speciality}" />
 					<h:outputLabel value="Institucijos pavadinimas: "></h:outputLabel>
-					<p:inputText />
+					<p:inputText value="#{studentData.newEducation.nameOfInstitution}" />
+					
 					<h:outputLabel for="institution" value="Institucijos tipas: "></h:outputLabel>
-					<p:selectOneMenu id="institution" value="kintamasis 'institution'">
+					<p:selectOneMenu id="institution" value="#{studentData.newEducation.institutionType}">
 						<f:selectItem itemLabel="Institutita" itemValue="" />
-						<f:selectItems value="kintamasis 'institutionList'" />
+						<f:selectItems value="#{studentPage.institutionTypeMap()}" />
 					</p:selectOneMenu>
+					
 					<h:outputLabel value="Baigimo metai: "></h:outputLabel>
-					<p:inputMask mask="9999-99-99" />
+					<h:inputText value="#{studentData.newEducation.institutionGraduationYear}">
+						<f:convertDateTime pattern="yyyy-MM-dd" />
+					</h:inputText>
 				</h:panelGrid>
 			</p:fieldset>
 
