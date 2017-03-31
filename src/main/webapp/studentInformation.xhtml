@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<h:outputStylesheet name="studentInformation.css" library="css" />
+	<title>Moksleivio informacijos peržiūra</title>
+</h:head>
+
+<h:body>
+	<h1>Moksleivio informacijos peržiūra</h1>
+
+	<h:form>
+		<h:panelGrid styleClass="block" columns="1">
+			<p:commandButton styleClass="button" value="Pagrindinis puslapis"
+				action="main"></p:commandButton>
+		</h:panelGrid>
+	</h:form>
+	<h:form styleClass="search">
+		<p:fieldset styleClass="margin" legend="Mokinio paieška:"
+			style="width:94%; color:#585858">
+			<h:panelGrid styleClass="textRight" columns="7">
+				<p:outputLabel value="Vardas: "></p:outputLabel>
+				<p:inputText value="#{studentData.newStudent.firstName}" />
+
+				<h:outputLabel value="Pavardė: "></h:outputLabel>
+				<p:inputText value="#{studentData.newStudent.lastName}" />
+			
+				<h:outputLabel value="Gimimo data: "></h:outputLabel>
+					<p:calendar pattern="yyyy-MM-dd" navigator="true" mask="9999-99-99"
+						value="#{studentData.newStudent.dateOfBirth}" />
+			
+				<h:commandButton styleClass="buttonAdd"
+					action="studentInformation" value="Ieškoti"
+					actionListener="#"
+					update="@(form)"/>
+			
+			</h:panelGrid>
+		</p:fieldset>
+
+		<h:form styleClass="continent">
+			<div class="leftContinent">
+
+				<p:fieldset styleClass="margin" legend="Informacija apie mokinį:"
+					style="width:410px; color:#585858">
+					<h:panelGrid styleClass="textRight" columns="2">
+
+						<p:outputLabel value="Vardas: "></p:outputLabel>
+						#{studentData.newStudent.firstName}
+
+						<h:outputLabel value="Pavardė: "></h:outputLabel>
+						#{studentData.newStudent.lastName}
+
+						<h:outputLabel value="Gimimo data: "></h:outputLabel>
+						#{studentData.newStudent.dateOfBirth}
+
+						<h:outputLabel value="Adresas: "></h:outputLabel>
+						#{studentData.newStudent.address}
+
+						<p:outputLabel value="Savivaldybė: " />
+						#{studentData.newStudent.multicipality}
+
+						<h:outputLabel value="Telefonas: "></h:outputLabel>
+						#{studentData.newStudent.phoneNumber}
+
+						<h:outputLabel value="Elektroninis paštas: "></h:outputLabel>
+						#{studentData.newStudent.email}
+
+						<h:outputLabel value="Išsilavinimas: "></h:outputLabel>
+						#{studentData.newStudent.education}
+
+						<h:outputLabel value="Baigė mokymo įstaigą: "></h:outputLabel>
+						#{studentData.newStudent.school}
+
+						<h:outputLabel value="Mokyklos baigimo metai: "></h:outputLabel>
+						#{studentData.newStudent.schoolGraduationYear}
+
+						<h:outputLabel value="Moksleivio šeimyninė padėtis: "></h:outputLabel>
+						#{studentData.newStudent.maritalStatus}
+						
+					</h:panelGrid>
+				</p:fieldset>
+
+				<p:fieldset styleClass="margin"
+					legend="Duomenys apie tėvus/globėjus:"
+					style="width:410px; color:#585858">
+					<p:fieldset styleClass="margin" legend="Tėvas:" toggleable="true"
+						toggleSpeed="300" style="width:360px; color:#585858">
+						<h:panelGrid styleClass="textRight" columns="2">
+							<h:outputLabel value="Vardas: "></h:outputLabel>
+							#{name}
+							<h:outputLabel value="Pavardė: "></h:outputLabel>
+							#{surname}
+							<h:outputLabel value="Adresas: "></h:outputLabel>
+							#{address}
+							<h:outputLabel value="Telefonas: "></h:outputLabel>
+							#{phone}
+						</h:panelGrid>
+					</p:fieldset>
+
+					<p:fieldset styleClass="margin" legend="Motina:" toggleable="true"
+						toggleSpeed="300" style="width:360px; color:#585858">
+						<h:panelGrid styleClass="textRight" columns="2">
+							<h:outputLabel value="Vardas: "></h:outputLabel>
+							#{name}
+							<h:outputLabel value="Pavardė: "></h:outputLabel>
+							#{surname}
+							<h:outputLabel value="Adresas: "></h:outputLabel>
+							#{address}
+							<h:outputLabel value="Telefonas: "></h:outputLabel>
+							#{phone}
+						</h:panelGrid>
+					</p:fieldset>
+
+					<p:fieldset styleClass="margin" legend="Globėjas(-a)"
+						toggleable="true" toggleSpeed="300"
+						style="width:360px; color:#585858">
+						<h:panelGrid styleClass="textRight" columns="2">
+							<h:outputLabel value="Vardas: "></h:outputLabel>
+							#{name}
+							<h:outputLabel value="Pavardė: "></h:outputLabel>
+							#{surname}
+							<h:outputLabel value="Adresas: "></h:outputLabel>
+							#{address}
+							<h:outputLabel value="Telefonas: "></h:outputLabel>
+							#{phone}
+						</h:panelGrid>
+					</p:fieldset>
+				</p:fieldset>
+			</div>
+
+			<div class="rightContinent">
+
+				<p:fieldset styleClass="margin" legend="Pridedama prie prašymo:"
+					style="width:520px; color:#585858">
+					<h:panelGrid styleClass="textRight" columns="2">
+						<h:outputText value="Išsilavinimo dokumentas: " />
+						#{education}
+						<h:outputText value="Sveikatos pažymėjimas: " />
+						#{kintamasis}
+						<h:outputText value="Nuotraukos 3x4 (2-4 vnt.): " />
+						#{kintamasis}
+						<h:outputText value="Paso kopija (tapatybės kortelės kopija): " />
+						#{kintamasis}
+						<h:outputText value="Šauktinio liudijimas: " />
+						#{kintamasis}
+						<h:outputText value="Stojamasis mokestis: " />
+						#{kintamasis}
+					</h:panelGrid>
+				</p:fieldset>
+
+				<p:fieldset styleClass="margin"
+					legend="Jei mokosi antrą kartą, papildomai pateikti šiuos duomenis:"
+					style="width:520px; color:#585858">
+					<h:panelGrid styleClass="textRight" columns="2">
+						<h:outputLabel value="Įgyta specialybė: "></h:outputLabel>
+						#{kintamasis}
+						<h:outputLabel value="Institucijos pavadinimas: "></h:outputLabel>
+						#{kintamasis}
+						<h:outputLabel value="Institucijos tipas: "></h:outputLabel>
+						#{institution}
+						<h:outputLabel value="Baigimo metai: "></h:outputLabel>
+						#{kintamasis}
+					</h:panelGrid>
+				</p:fieldset>
+
+				<p:fieldset styleClass="margin"
+					legend="Prašymas (informacija apie prašymą):"
+					style="width:520px; color:#585858">
+					<h:panelGrid styleClass="textRight" columns="2">
+						<h:outputLabel value="Priėmimo prašymo data: "></h:outputLabel>
+						#{studentData.newRequest.requestdate}
+						<h:outputLabel value="Grupė: "></h:outputLabel>
+						#{studentData.newRequest.unit}
+						<h:outputLabel value="Pakopa: "></h:outputLabel>
+						#{studentData.newRequest.stage}
+					</h:panelGrid>
+				</p:fieldset>
+
+				<p:fieldset styleClass="moreInfo" legend="Papildoma informacija:"
+					style="width:520px; color:#585858">
+					<h:panelGrid columns="2" >
+						<h:outputText value="Ar reikalingas bendrabutis: " />
+						#{kintamasis}
+
+						<h:outputText value="Iš kur sužinojote apie mūsų įstaigą: " />
+						#{kintamasis}
+					</h:panelGrid>
+				</p:fieldset>
+
+				<p:fieldset styleClass="margin" legend="Dokumentai..."
+					style="width:520px; color:#585858">
+					<h:panelGrid styleClass="textRight" columns="2" cellpadding="15">
+						<h:outputText value="Mokinys atsiemė dokumentus. " />
+						#{kintamasis}
+					</h:panelGrid>
+				</p:fieldset>
+
+			</div>
+		</h:form>
+		<div class="gap"></div>
+	</h:form>
+</h:body>
+</html>
