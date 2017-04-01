@@ -13,6 +13,7 @@ public class CurriculumDao implements CurriculumRepo {
 	private EntityManager getEntityManager() {
 		return entityManagerFactory.createEntityManager();
 	}
+	
 
 	@Override
 	public void save(CurriculumSubjects CurriculumSubjects) {
@@ -40,5 +41,9 @@ public class CurriculumDao implements CurriculumRepo {
 		} finally {
 			em.close();
 		}
+	}
+	
+	public void setEntityManagerFactory(EntityManagerFactory entityManagerFactory) {
+		this.entityManagerFactory = entityManagerFactory;
 	}
 }

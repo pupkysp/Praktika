@@ -10,9 +10,7 @@
 <h:body>
 	<h1>Mokymo plano sudarymas</h1>
 	<h:form>
-		<div>
 			<p:fieldset style="margin-bottom:20px">
-				<div>
 					<h:panelGrid columns="3" cellpadding="5">
 						<h:panelGrid columns="3" cellpadding="5">
 							<p:outputLabel for="vardas" value="Vardas:" />
@@ -26,9 +24,7 @@
 						</h:panelGrid>
 						<p:button value="Patikrinti" icon="ui-icon-search"></p:button>
 					</h:panelGrid>
-				</div>
-				<div>
-					<p:growl id="msgs" showDetail="true" />
+					<!--  <p:growl id="msgs" showDetail="true" /> -->
 					<p:fieldset
 						legend="Privalomieji bendrojo ugdymo branduolio dalykai"
 						style="margin-bottom:20px">
@@ -153,9 +149,6 @@
 							</p:fieldset>
 						</h:panelGrid>
 					</p:fieldset>
-				</div>
-				<div>
-					<p:growl id="msgs" showDetail="true" />
 					<p:fieldset
 						legend="Pasirenkamieji profesijos arba bendro ugdymo dalykai"
 						style="margin-bottom:20px">
@@ -274,13 +267,11 @@
 							</p:fieldset>
 						</h:panelGrid>
 					</p:fieldset>
-				</div>
-				<div>
 					<p:fieldset style="margin-bottom:20px">
 						<h:panelGrid class="inputForm" columns="2" cellpadding="5">
 							<h:panelGrid columns="2" cellpadding="5">
 								<p:outputLabel value="Būreliai" />
-								<p:selectOneMenu id="country"
+								<p:selectOneMenu
 									value="#{curriculumData.newCurriculumSubjects.club}"
 									style="width:150px">
 									<f:selectItem itemLabel=" " itemValue="null" />
@@ -300,14 +291,10 @@
 							</h:panelGrid>
 						</h:panelGrid>
 					</p:fieldset>
-					<div>
 						<p:button value="Į pradžią" icon="ui-icon-home" action="main" />
 						<p:commandButton action="#{curriculumPage.addNew()}"
-							value="Išsaugoti" icon="ui-icon-disk" />
-					</div>
-				</div>
+							value="Išsaugoti" icon="ui-icon-disk"  />
 			</p:fieldset>
-		</div>
 	</h:form>
 </h:body>
 </html>

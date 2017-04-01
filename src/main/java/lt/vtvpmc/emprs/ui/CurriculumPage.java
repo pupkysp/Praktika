@@ -21,13 +21,14 @@ public class CurriculumPage {
 			newCurriculumSubjects = new CurriculumSubjects();
 		}
 
-		public CurriculumSubjects getNewCompulsorySubjects() {
+		public void setNewCurriculumSubjects(CurriculumSubjects newCurriculumSubjects) {
+			this.newCurriculumSubjects = newCurriculumSubjects;
+		}
+
+		public CurriculumSubjects getNewCurriculumSubjects() {
 			return newCurriculumSubjects;
 		}
 
-		public void setNewCompulsorySubjects(CurriculumSubjects newCompulsorySubjects) {
-			this.newCurriculumSubjects = newCompulsorySubjects;
-		}
 
 		private CurriculumData data;
 		private CurriculumRepo curriculumRepo;

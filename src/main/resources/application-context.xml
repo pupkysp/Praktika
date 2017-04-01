@@ -21,33 +21,49 @@
 
 	<!-- repos daos -->
 
-	<bean id="studentRepo" class="lt.vtvpmc.emprs.repositories.dao.StudentDao" scope="singleton">
+	<bean id="studentRepo" class="lt.vtvpmc.emprs.repositories.dao.StudentDao"
+		scope="singleton">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 
 
-<!-- 	<bean id="educationRepo" class="lt.vtvpmc.emprs.repositories.dao.EducationDao" -->
-<!-- 		scope="singleton"> -->
-<!-- 		<property name="entityManagerFactory" ref="entityManagerFactory" /> -->
-<!-- 	</bean> -->
+	<!-- <bean id="educationRepo" class="lt.vtvpmc.emprs.repositories.dao.EducationDao" -->
+	<!-- scope="singleton"> -->
+	<!-- <property name="entityManagerFactory" ref="entityManagerFactory" /> -->
+	<!-- </bean> -->
 
-	<bean id="requestRepo" class="lt.vtvpmc.emprs.repositories.dao.RequestDao" scope="singleton">
+	<bean id="requestRepo" class="lt.vtvpmc.emprs.repositories.dao.RequestDao"
+		scope="singleton">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 
-<!-- 	<bean id="parentInfoRepo" class="lt.vtvpmc.emprs.repositories.dao.ParentInfoDao" -->
-<!-- 		scope="singleton"> -->
-<!-- 		<property name="entityManagerFactory" ref="entityManagerFactory" /> -->
-<!-- 	</bean> -->
+	<!-- <bean id="parentInfoRepo" class="lt.vtvpmc.emprs.repositories.dao.ParentInfoDao" -->
+	<!-- scope="singleton"> -->
+	<!-- <property name="entityManagerFactory" ref="entityManagerFactory" /> -->
+	<!-- </bean> -->
 
+	<bean id="curriculumRepo" class="lt.vtvpmc.emprs.repositories.dao.CurriculumDao"
+		scope="singleton">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
 
 	<!-- ui -->
 
+	<bean id="curriculumData" class="lt.vtvpmc.emprs.ui.CurriculumPage.CurriculumData"
+		scope="session" init-method="init">
+	</bean>
 
-	<bean id="studentData" class="lt.vtvpmc.emprs.ui.StudentPage.StudentData" scope="session"
-		init-method="init" />
+	<bean id="curriculumPage" class="lt.vtvpmc.emprs.ui.CurriculumPage"
+		scope="request">
+		<property name="data" ref="curriculumData"></property>
+		<property name="curriculumRepo" ref="curriculumRepo"></property>
+	</bean>
+	
+	<bean id="studentData" class="lt.vtvpmc.emprs.ui.StudentPage.StudentData"
+		scope="session" init-method="init" />
 
-	<bean id="studentPage" class="lt.vtvpmc.emprs.ui.StudentPage" scope="request">
+	<bean id="studentPage" class="lt.vtvpmc.emprs.ui.StudentPage"
+		scope="request">
 		<property name="data" ref="studentData"></property>
 		<property name="studentRepo" ref="studentRepo"></property>
 		<property name="requestRepo" ref="requestRepo"></property>
