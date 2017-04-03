@@ -2,16 +2,12 @@ package lt.vtvpmc.emprs.entities;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.ElementCollection;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -33,21 +29,6 @@ public class Student implements Serializable {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dateOfBirth;
-	
-//	private String address;
-//	
-//	private String municipality;
-//	
-//	private String phoneNumber;
-//
-//	private String email;
-//	
-//	private String education;
-//	
-//	private String school;
-//	
-//	@Temporal(TemporalType.TIMESTAMP)
-//	private Date schoolGraduationYear;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	private StudentInfo studentInfo;
@@ -90,62 +71,6 @@ public class Student implements Serializable {
 		this.dateOfBirth = dateOfBirth;
 	}
 
-//	public String getAddress() {
-//		return address;
-//	}
-//
-//	public void setAddress(String address) {
-//		this.address = address;
-//	}
-//
-//	public String getMunicipality() {
-//		return municipality;
-//	}
-//
-//	public void setMunicipality(String municipality) {
-//		this.municipality = municipality;
-//	}
-//
-//	public String getPhoneNumber() {
-//		return phoneNumber;
-//	}
-//
-//	public void setPhoneNumber(String phoneNumber) {
-//		this.phoneNumber = phoneNumber;
-//	}
-//
-//	public String getEmail() {
-//		return email;
-//	}
-//
-//	public void setEmail(String email) {
-//		this.email = email;
-//	}
-//
-//	public String getEducation() {
-//		return education;
-//	}
-//
-//	public void setEducation(String education) {
-//		this.education = education;
-//	}
-//
-//	public String getSchool() {
-//		return school;
-//	}
-//
-//	public void setSchool(String school) {
-//		this.school = school;
-//	}
-//
-//	public Date getSchoolGraduationYear() {
-//		return schoolGraduationYear;
-//	}
-//
-//	public void setSchoolGraduationYear(Date schoolGraduationYear) {
-//		this.schoolGraduationYear = schoolGraduationYear;
-//	}
-
 	public Request getRequest() {
 		return request;
 	}
@@ -169,6 +94,5 @@ public class Student implements Serializable {
 	public void setParentInfo(ParentInfo parentInfo) {
 		this.parentInfo = parentInfo;
 	}
-
 
 }

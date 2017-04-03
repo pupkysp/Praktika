@@ -5,11 +5,8 @@ import java.util.HashMap;
 
 import java.util.Map;
 
-import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
 
 
-@ManagedBean
 public class ListBean implements Serializable {
 
 	private static final long serialVersionUID = -6697908620358790529L;
@@ -22,7 +19,7 @@ public class ListBean implements Serializable {
 	
 	private Map<String,String> municipalityMap = new HashMap<String, String>();
 	
-	@PostConstruct
+
 	public void init() {
 		
 		this.addMaritalStatusMap();

@@ -44,12 +44,17 @@
 		scope="singleton">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
+	
+	<bean id="additionalInfoRepo" class="lt.vtvpmc.emprs.repositories.dao.AdditionalInfoDao"
+		scope="singleton">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
 
 
 	<!-- ui -->
 
 
-<!-- 	<bean id="listBean" class="lt.vtvpmc.emprs.ui.ListBean" scope="request"/> -->
+	<bean id="listBean" class="lt.vtvpmc.emprs.ui.ListBean" />
 		
 	<bean id="studentData" class="lt.vtvpmc.emprs.ui.StudentPage.StudentData" scope="session"
 		init-method="init" />
@@ -61,6 +66,8 @@
 		<property name="parentInfoRepo" ref="parentInfoRepo"></property>
 		<property name="studentInfoRepo" ref="studentInfoRepo"></property>
 		<property name="educationRepo" ref="educationRepo"></property>
+		<property name="additionalInfoRepo" ref="additionalInfoRepo"></property>
+		<property name="listBean" ref="listBean"></property>
 	</bean>
 
 </beans>
