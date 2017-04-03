@@ -28,31 +28,30 @@ public class CurriculumPage {
 		public CurriculumSubjects getNewCurriculumSubjects() {
 			return newCurriculumSubjects;
 		}
+	}
 
+	private CurriculumData data;
+	private CurriculumRepo curriculumRepo;
 
-		private CurriculumData data;
-		private CurriculumRepo curriculumRepo;
+	public String addNew() {
+		curriculumRepo.save(data.newCurriculumSubjects);
+		data.newCurriculumSubjects = new CurriculumSubjects();
+		return NAV_SHOW_INDEX;
+	}
 
-		public String addNew() {
-			curriculumRepo.save(data.newCurriculumSubjects);
-			data.newCurriculumSubjects = new CurriculumSubjects();
-			return NAV_SHOW_INDEX;
-		}
+	public CurriculumData getData() {
+		return data;
+	}
 
-		public CurriculumData getData() {
-			return data;
-		}
+	public void setData(CurriculumData data) {
+		this.data = data;
+	}
 
-		public void setData(CurriculumData data) {
-			this.data = data;
-		}
+	public CurriculumRepo getCurriculumRepo() {
+		return curriculumRepo;
+	}
 
-		public CurriculumRepo getCurriculumRepo() {
-			return curriculumRepo;
-		}
-
-		public void setCurriculumRepo(CurriculumRepo curriculumRepo) {
-			this.curriculumRepo = curriculumRepo;
-		}
+	public void setCurriculumRepo(CurriculumRepo curriculumRepo) {
+		this.curriculumRepo = curriculumRepo;
 	}
 }

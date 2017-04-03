@@ -62,8 +62,8 @@ public class CurriculumSubjects implements Serializable {
 	private int mathematics_Module_I = 0;
 	private int mathematics_Module_II = 0;
 	private int mathematics_Module_III = 0;
-	private String club;
-	private String wishes;
+	private String club = null;
+	private String wishes = null;
 
 	public int getReligion() {
 		return religion;
