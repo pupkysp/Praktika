@@ -138,17 +138,17 @@
 				style="width:520px; color:#585858">
 				<h:panelGrid columns="2">
 					<h:outputText value="Išsilavinimo dokumentas: " />
-					<p:selectBooleanCheckbox />
+					<p:selectBooleanCheckbox value="#{studentData.newRequest.credential}" />
 					<h:outputText value="Sveikatos pažymėjimas: " />
-					<p:selectBooleanCheckbox />
+					<p:selectBooleanCheckbox value="#{studentData.newRequest.medicalCertificate}" />
 					<h:outputText value="Nuotraukos 3x4 (2-4 vnt.): " />
-					<p:selectBooleanCheckbox />
+					<p:selectBooleanCheckbox value="#{studentData.newRequest.photo}" />
 					<h:outputText value="Paso kopija (tapatybės kortelės kopija): " />
-					<p:selectBooleanCheckbox />
+					<p:selectBooleanCheckbox value="#{studentData.newRequest.passportCopy}" />
 					<h:outputText value="Šauktinio liudijimas: " />
-					<p:selectBooleanCheckbox />
+					<p:selectBooleanCheckbox value="#{studentData.newRequest.drafteeCertificate}" />
 					<h:outputText value="Stojamasis mokestis: " />
-					<p:selectBooleanCheckbox />
+					<p:selectBooleanCheckbox value="#{studentData.newRequest.entranceFee}" />
 				</h:panelGrid>
 			</p:fieldset>
 
@@ -193,24 +193,33 @@
 				style="width:520px; color:#585858">
 				<h:panelGrid columns="2" cellpadding="15">
 					<h:outputText value="Ar reikalingas bendrabutis: " />
-					<p:selectOneRadio>
+					<p:selectOneRadio value="#{studentData.newRequest.dormitory}">
 						<f:selectItem itemValue="Taip" itemLabel="Taip" />
 						<f:selectItem itemValue="Ne" itemLabel="Ne" />
 					</p:selectOneRadio>
+					
+					
 
+					
+					
+				</h:panelGrid>
 					<h:outputText for="info"
 						value="Iš kur sužinojote apie mūsų įstaigą: " />
-					<p:selectManyCheckbox columns="2" layout="grid">
-						<f:selectItem itemValue="draugu" itemLabel="Draugų" />
-						<f:selectItem itemValue="interneto" itemLabel="Interneto" />
-						<f:selectItem itemValue="zurnalo"
-							itemLabel='Leidinio "Kur Stoti?"' />
-						<f:selectItem itemValue="mokykloje" itemLabel="Mokykloje" />
-						<f:selectItem itemValue="reklamoje" itemLabel="Reklamoje" />
-						<f:selectItem itemValue="proforientacija"
-							itemLabel="Proforientacijos metu" />
-						<f:selectItem itemValue="kita" itemLabel="kita.." />
-					</p:selectManyCheckbox>
+				<h:panelGrid columns="4">
+					<h:outputText value="Draugų: " />
+					<p:selectBooleanCheckbox value="#{studentData.newAdditionalInfo.fromFriends}" />
+					<h:outputText value="Interneto: " />
+					<p:selectBooleanCheckbox value="#{studentData.newAdditionalInfo.fromWeb}" />
+					<h:outputText value="Leidinio 'Kur Stoti?': " />
+					<p:selectBooleanCheckbox value="#{studentData.newAdditionalInfo.fromPublication}" />
+					<h:outputText value="Mokykloje: " />
+					<p:selectBooleanCheckbox value="#{studentData.newAdditionalInfo.fromSchool}" />
+					<h:outputText value="Reklamoje: " />
+					<p:selectBooleanCheckbox value="#{studentData.newAdditionalInfo.fromAds}" />
+					<h:outputText value="Proforientacijos metu: " />
+					<p:selectBooleanCheckbox value="#{studentData.newAdditionalInfo.fromProf}" />
+					<h:outputText value="Kita.." />
+					<p:selectBooleanCheckbox value="#{studentData.newAdditionalInfo.other}" />
 				</h:panelGrid>
 			</p:fieldset>
 
@@ -218,7 +227,7 @@
 				<h:panelGrid columns="2" cellpadding="15">
 					<h:outputText value="Mokinys atsiemė dokumentus. " />
 					<p:selectBooleanButton onLabel="Taip" offLabel="Ne"
-						onIcon="ui-icon-check" offIcon="ui-icon-close" style="width:100px" />
+						onIcon="ui-icon-check" value="#{studentData.newRequest.documentsWithdrawn}" offIcon="ui-icon-close" style="width:100px" />
 				</h:panelGrid>
 			</p:fieldset>
 
