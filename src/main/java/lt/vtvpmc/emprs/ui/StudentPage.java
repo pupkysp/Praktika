@@ -5,17 +5,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import javax.inject.Inject;
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import lt.vtvpmc.emprs.entities.AdditionalInfo;
 import lt.vtvpmc.emprs.entities.Education;
 import lt.vtvpmc.emprs.entities.ParentInfo;
 import lt.vtvpmc.emprs.entities.Request;
 import lt.vtvpmc.emprs.entities.Student;
 import lt.vtvpmc.emprs.entities.StudentInfo;
+import lt.vtvpmc.emprs.repositories.AdditionalInfoRepo;
 import lt.vtvpmc.emprs.repositories.EducationRepo;
 import lt.vtvpmc.emprs.repositories.ParentInfoRepo;
 import lt.vtvpmc.emprs.repositories.RequestRepo;
@@ -54,6 +55,9 @@ public class StudentPage {
 		
 		@Valid
 		private ParentInfo newParentInfo;
+		
+		@Valid
+		private AdditionalInfo newAdditionalInfo;
 			
 		
 		public void init() {
@@ -69,6 +73,8 @@ public class StudentPage {
 			newStudent = new Student();
 			
 			foundStudents = new ArrayList<Student>();
+			
+			newAdditionalInfo = new AdditionalInfo();
 			
 		}
 
@@ -144,9 +150,17 @@ public class StudentPage {
 			this.foundStudents = foundStudents;
 		}
 
+		public AdditionalInfo getNewAdditionalInfo() {
+			return newAdditionalInfo;
+		}
+
+		public void setNewAdditionalInfo(AdditionalInfo newAdditionalInfo) {
+			this.newAdditionalInfo = newAdditionalInfo;
+		}
+
 		
 	}
-	@Inject
+
 	private ListBean listBean;
 	
 	private StudentData data;
@@ -161,25 +175,37 @@ public class StudentPage {
 	
 	private EducationRepo educationRepo;
 	
+	private AdditionalInfoRepo additionalInfoRepo;
+	
 	public String addNew() {
 		
 		
 		log.debug("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-//		Address a = data.newAddress;
-//		a.setStudent(data.newStudent);
+
+		data.newRequest.setAdditionalInfo(data.newAdditionalInfo);
+		
 		data.newStudent.setRequest(data.newRequest);
+		
 		data.newStudent.setParentInfo(data.newParentInfo);
+		
 		data.newStudentInfo.setEducation(data.newEducation);
+		
 		data.newStudent.setStudentInfo(data.newStudentInfo);
 		
 		studentRepo.save(data.newStudent);
 		
-//		addressRepo.save(a);
 		data.newEducation = new Education();
+		
 		data.newParentInfo = new ParentInfo();
+		
 		data.newStudentInfo = new StudentInfo();
+		
 		data.newStudent = new Student();
+		
 		data.newRequest = new Request();
+		
+		data.newAdditionalInfo = new AdditionalInfo();
+		
 		return NAV_SHOW_INDEX;
 		
 	}
@@ -272,6 +298,18 @@ public class StudentPage {
 	public void setStudentRepo(StudentRepo studentRepo) {
 		this.studentRepo = studentRepo;
 	}
+
+
+	public AdditionalInfoRepo getAdditionalInfoRepo() {
+		return additionalInfoRepo;
+	}
+
+
+	public void setAdditionalInfoRepo(AdditionalInfoRepo additionalInfoRepo) {
+		this.additionalInfoRepo = additionalInfoRepo;
+	}
+
+
 
 
 }
