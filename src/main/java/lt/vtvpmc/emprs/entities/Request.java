@@ -2,11 +2,9 @@ package lt.vtvpmc.emprs.entities;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
+
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -33,6 +31,25 @@ public class Request implements Serializable {
 	private String unit;
 
 	private String stage;
+	
+	private boolean credential;
+	
+	private boolean medicalCertificate;
+	
+	private boolean photo;
+	
+	private boolean passportCopy;
+	
+	private boolean drafteeCertificate;
+	
+	private boolean entranceFee;
+	
+	private boolean documentsWithdrawn;
+	
+	private String dormitory;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	private AdditionalInfo additionalInfo;
 
 //	@ElementCollection(targetClass = String.class)
 //	private List<String> attachments;
@@ -48,6 +65,7 @@ public class Request implements Serializable {
 //	@Column
 //	@ElementCollection(targetClass = String.class)
 //	private List<String> infoAboutDocuments;
+
 
 	@OneToOne(cascade = CascadeType.ALL, mappedBy = "request")
 	@JoinColumn(name = "student_id")
@@ -93,5 +111,76 @@ public class Request implements Serializable {
 		this.student = student;
 	}
 
+	public boolean isCredential() {
+		return credential;
+	}
+
+	public void setCredential(boolean credential) {
+		this.credential = credential;
+	}
+
+	public boolean isMedicalCertificate() {
+		return medicalCertificate;
+	}
+
+	public void setMedicalCertificate(boolean medicalCertificate) {
+		this.medicalCertificate = medicalCertificate;
+	}
+
+	public boolean isPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(boolean photo) {
+		this.photo = photo;
+	}
+
+	public boolean isPassportCopy() {
+		return passportCopy;
+	}
+
+	public void setPassportCopy(boolean passportCopy) {
+		this.passportCopy = passportCopy;
+	}
+
+	public boolean isDrafteeCertificate() {
+		return drafteeCertificate;
+	}
+
+	public void setDrafteeCertificate(boolean drafteeCertificate) {
+		this.drafteeCertificate = drafteeCertificate;
+	}
+
+	public boolean isEntranceFee() {
+		return entranceFee;
+	}
+
+	public void setEntranceFee(boolean entranceFee) {
+		this.entranceFee = entranceFee;
+	}
+
+	public boolean isDocumentsWithdrawn() {
+		return documentsWithdrawn;
+	}
+
+	public void setDocumentsWithdrawn(boolean documentsWithdrawn) {
+		this.documentsWithdrawn = documentsWithdrawn;
+	}
+	
+	public String getDormitory() {
+		return dormitory;
+	}
+
+	public void setDormitory(String dormitory) {
+		this.dormitory = dormitory;
+	}
+
+	public AdditionalInfo getAdditionalInfo() {
+		return additionalInfo;
+	}
+
+	public void setAdditionalInfo(AdditionalInfo additionalInfo) {
+		this.additionalInfo = additionalInfo;
+	}
 
 }
