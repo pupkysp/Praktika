@@ -4,7 +4,8 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Curriculum Report</title>
+    <h:outputStylesheet name="studentInformation.css" library="css" />
+        <title>Moksleivio mokymo plano peržiūrėjimas</title>
         <style>
 			.dor {width:60px; text-align:right; margin-left:70px;}
 			.kal {width:100px; text-align:right; margin-left:120px;}
@@ -18,8 +19,17 @@
     </h:head>
     
     <h:body>
-
-        <h:form id="newCustomerForm">
+		<h1>Moksleivio mokymo plano peržiūrėjimas</h1>
+		<h:form>
+		<h:panelGrid styleClass="block" columns="1">
+			<p:commandButton styleClass="button" value="Pagrindinis puslapis"
+				action="main"></p:commandButton>
+		</h:panelGrid>
+        </h:form>
+        
+        <h:form styleClass="search">
+        <p:fieldset styleClass="margin" legend="Mokinio paieška:"
+			style="width:94%; color:#585858">
             <h:panelGrid columns="3">
             <h:panelGroup style="padding:10px">				
                 <h:outputText style="margin-right:20px" value="Vardas"/>
@@ -39,7 +49,8 @@
             		<f:selectItem itemValue = "4" itemLabel = "4" />     
          		</h:selectOneMenu>  
             </h:panelGroup>
-            </h:panelGrid>           
+            </h:panelGrid>
+            </p:fieldset>           
         </h:form>
 
         <br></br>
