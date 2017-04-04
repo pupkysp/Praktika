@@ -282,10 +282,10 @@
 					</h:panelGrid>
 				</h:panelGrid>
 			</p:fieldset>
-			<p:button value="Į pradžią" icon="ui-icon-home" action="main" />
-			<p:commandButton action="#{curriculumPage.addNew()}"
-				value="Išsaugoti" icon="ui-icon-disk"/>
 		</p:fieldset>
+		<p:commandButton value="Į pradžią" icon="ui-icon-home" action="main" />
+		<p:commandButton action="#{curriculumPage.addNew()}" value="Išsaugoti"
+			icon="ui-icon-disk" update="@form" />
 	</h:form>
 </h:body>
 </html>

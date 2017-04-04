@@ -23,20 +23,10 @@
 	<navigation-rule>
 		<from-view-id>/makeCurriculum.xhtml</from-view-id>
 		<navigation-case>
-			<from-outcome>show-index-page</from-outcome>
+			<from-outcome>show-index</from-outcome>
 			<to-view-id>/makeCurriculum.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-	
-	<navigation-rule>
-		<navigation-case>
-			<from-outcome>main</from-outcome>
-			<to-view-id>/Main.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 	</navigation-rule>
 	
-	
-
-
 </faces-config>

@@ -8,7 +8,7 @@ import lt.vtvpmc.emprs.entities.CurriculumSubjects;
 import lt.vtvpmc.emprs.repositories.CurriculumRepo;
 
 public class CurriculumPage {
-	public static final String NAV_SHOW_INDEX = "show-index-page";
+	public static final String NAV_SHOW_INDEX = "show-index";
 
 	public static class CurriculumData implements Serializable {
 
