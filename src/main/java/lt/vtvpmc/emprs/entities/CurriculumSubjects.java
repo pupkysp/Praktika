@@ -1,10 +1,13 @@
 package lt.vtvpmc.emprs.entities;
 
 import java.io.Serializable;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -64,6 +67,9 @@ public class CurriculumSubjects implements Serializable {
 	private int mathematics_Module_III = 0;
 	private String club = null;
 	private String wishes = null;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	private Student student;
 
 	public int getReligion() {
 		return religion;
@@ -456,4 +462,13 @@ public class CurriculumSubjects implements Serializable {
 	public void setWishes(String wishes) {
 		this.wishes = wishes;
 	}
+
+	public Student getStudent() {
+		return student;
+	}
+
+	public void setStudent(Student student) {
+		this.student = student;
+	}
+	
 }

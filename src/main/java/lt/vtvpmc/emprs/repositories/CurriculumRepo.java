@@ -8,4 +8,8 @@ public void save(CurriculumSubjects CurriculumSubjects);
 	
 public void delete(CurriculumSubjects CurriculumSubjects);
 
+public Long getIdByName(String firstName, String lastName);
+
+public String getEducationByName(String firstName, String lastName);
+
 }

@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.validation.Valid;
 
 import lt.vtvpmc.emprs.entities.CurriculumSubjects;
+import lt.vtvpmc.emprs.entities.Student;
 import lt.vtvpmc.emprs.repositories.CurriculumRepo;
 
 public class CurriculumPage {
@@ -16,9 +17,13 @@ public class CurriculumPage {
 
 		@Valid
 		private CurriculumSubjects newCurriculumSubjects;
+		
+		@Valid
+		private Student student;
 
 		public void init() {
 			newCurriculumSubjects = new CurriculumSubjects();
+			student = new Student();
 		}
 
 		public void setNewCurriculumSubjects(CurriculumSubjects newCurriculumSubjects) {
@@ -27,6 +32,14 @@ public class CurriculumPage {
 
 		public CurriculumSubjects getNewCurriculumSubjects() {
 			return newCurriculumSubjects;
+		}
+
+		public Student getStudent() {
+			return student;
+		}
+
+		public void setStudent(Student student) {
+			this.student = student;
 		}
 	}
 
@@ -37,6 +50,13 @@ public class CurriculumPage {
 		curriculumRepo.save(data.newCurriculumSubjects);
 		data.newCurriculumSubjects = new CurriculumSubjects();
 		return NAV_SHOW_INDEX;
+	}
+	
+	public void validate() {
+		Long ID = curriculumRepo.getIdByName(data.student.getFirstName(), data.student.getLastName());
+		String education = curriculumRepo.getEducationByName(data.student.getFirstName(), data.student.getLastName());
+		System.out.println(ID);
+		System.out.println(education);
 	}
 
 	public CurriculumData getData() {
@@ -54,4 +74,5 @@ public class CurriculumPage {
 	public void setCurriculumRepo(CurriculumRepo curriculumRepo) {
 		this.curriculumRepo = curriculumRepo;
 	}
+	
 }

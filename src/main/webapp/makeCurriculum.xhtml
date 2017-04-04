@@ -14,15 +14,18 @@
 			<h:panelGrid columns="3" cellpadding="5">
 				<h:panelGrid columns="3" cellpadding="5">
 					<p:outputLabel for="vardas" value="Vardas:" />
-					<p:inputText id="vardas" value="#" required="true">
+					<p:inputText id="vardas"
+						value="#{curriculumData.student.firstName}" required="true">
 					</p:inputText>
 				</h:panelGrid>
 				<h:panelGrid columns="3" cellpadding="5">
 					<p:outputLabel for="pavarde" value="Pavardė" />
-					<p:inputText id="pavarde" value="#" required="true">
+					<p:inputText id="pavarde"
+						value="#{curriculumData.student.lastName}" required="true">
 					</p:inputText>
 				</h:panelGrid>
-				<p:button value="Patikrinti" icon="ui-icon-search"></p:button>
+				<p:commandButton value="Patikrinti" icon="ui-icon-search"
+					action="#{curriculumPage.validate()}"/>
 			</h:panelGrid>
 			<!--  <p:growl id="msgs" showDetail="true" /> -->
 			<p:fieldset legend="Privalomieji bendrojo ugdymo branduolio dalykai"
