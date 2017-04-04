@@ -7,8 +7,10 @@
 		<class>lt.vtvpmc.emprs.entities.Student</class>
 		<class>lt.vtvpmc.emprs.entities.Request</class>
 		<class>lt.vtvpmc.emprs.entities.CurriculumSubjects</class>
-<!-- 		<class>entities.Education</class> -->
-<!-- 		<class>entities.ParentInfo</class> -->
+		<class>lt.vtvpmc.emprs.entities.Education</class>
+		<class>lt.vtvpmc.emprs.entities.ParentInfo</class>
+		<class>lt.vtvpmc.emprs.entities.StudentInfo</class>
+		<class>lt.vtvpmc.emprs.entities.AdditionalInfo</class>
 		<properties>
 			<property name="hibernate.show_sql" value="false" />
 			<property name="hibernate.format_sql" value="true" />

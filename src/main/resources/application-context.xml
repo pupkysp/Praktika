@@ -27,20 +27,34 @@
 	</bean>
 
 
-	<!-- <bean id="educationRepo" class="lt.vtvpmc.emprs.repositories.dao.EducationDao" -->
-	<!-- scope="singleton"> -->
-	<!-- <property name="entityManagerFactory" ref="entityManagerFactory" /> -->
-	<!-- </bean> -->
+
+	<bean id="educationRepo" class="lt.vtvpmc.emprs.repositories.dao.EducationDao"
+		scope="singleton">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
 
 	<bean id="requestRepo" class="lt.vtvpmc.emprs.repositories.dao.RequestDao"
 		scope="singleton">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 
-	<!-- <bean id="parentInfoRepo" class="lt.vtvpmc.emprs.repositories.dao.ParentInfoDao" -->
-	<!-- scope="singleton"> -->
-	<!-- <property name="entityManagerFactory" ref="entityManagerFactory" /> -->
-	<!-- </bean> -->
+
+	<bean id="parentInfoRepo" class="lt.vtvpmc.emprs.repositories.dao.ParentInfoDao"
+		scope="singleton">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+	
+	<bean id="studentInfoRepo" class="lt.vtvpmc.emprs.repositories.dao.StudentInfoDao"
+		scope="singleton">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+	
+	<bean id="additionalInfoRepo" class="lt.vtvpmc.emprs.repositories.dao.AdditionalInfoDao"
+		scope="singleton">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
 
 	<bean id="curriculumRepo" class="lt.vtvpmc.emprs.repositories.dao.CurriculumDao"
 		scope="singleton">
@@ -53,6 +67,7 @@
 		scope="session" init-method="init">
 	</bean>
 
+
 	<bean id="curriculumPage" class="lt.vtvpmc.emprs.ui.CurriculumPage"
 		scope="request">
 		<property name="data" ref="curriculumData"></property>
@@ -62,11 +77,22 @@
 	<bean id="studentData" class="lt.vtvpmc.emprs.ui.StudentPage.StudentData"
 		scope="session" init-method="init" />
 
+	<bean id="listBean" class="lt.vtvpmc.emprs.ui.ListBean" />
+		
+	<bean id="studentData" class="lt.vtvpmc.emprs.ui.StudentPage.StudentData" scope="session"
+		init-method="init" />
+
+
 	<bean id="studentPage" class="lt.vtvpmc.emprs.ui.StudentPage"
 		scope="request">
 		<property name="data" ref="studentData"></property>
 		<property name="studentRepo" ref="studentRepo"></property>
 		<property name="requestRepo" ref="requestRepo"></property>
+		<property name="parentInfoRepo" ref="parentInfoRepo"></property>
+		<property name="studentInfoRepo" ref="studentInfoRepo"></property>
+		<property name="educationRepo" ref="educationRepo"></property>
+		<property name="additionalInfoRepo" ref="additionalInfoRepo"></property>
+		<property name="listBean" ref="listBean"></property>
 	</bean>
 
 </beans>

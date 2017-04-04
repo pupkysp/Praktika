@@ -12,8 +12,6 @@
 <h:body>
 	<h1>Naujo Moksleivio Registracija</h1>
 
-
-
 	<h:form>
 		<h:panelGrid styleClass="block" columns="1">
 			<p:commandButton styleClass="button" value="Pagrindinis puslapis"
@@ -21,204 +19,214 @@
 		</h:panelGrid>
 	</h:form>
 
-
-      <h:form styleClass="margin">
-      <div class="continent">
+	<h:form styleClass="continent">
 		<div class="leftContinent">
 
-				<p:fieldset legend="Informacija apie mokinį:"
-					style="width:420px; color:#585858">
-					<h:panelGrid columns="2">
-						<p:outputLabel value="Vardas: "></p:outputLabel>
-						<p:inputText value="#{studentData.newStudent.firstName}" />
-						<h:outputLabel value="Pavardė: "></h:outputLabel>
-						<p:inputText value="#{studentData.newStudent.lastName}" />
-						<h:outputLabel value="Gimimo data: "></h:outputLabel>
-						<h:inputText value="#{studentData.newStudent.dateOfBirth}">
-						<f:convertDateTime pattern="yyyy-MM-dd" />
-						</h:inputText>
-						<h:outputLabel value="Adresas: "></h:outputLabel>
-						<p:inputText value="#{studentData.newStudent.address}" />
-						<p:outputLabel for="savivaldybe" value="Savivaldybė: " />
-						<p:selectOneMenu id="savivaldybe"
-							value="kintamasis 'multicipality'">
-							<f:selectItem itemLabel="Savivaldybė" itemValue="" />
-							<f:selectItems value="kintamasis 'multicipalityList'" />
-						</p:selectOneMenu>
-						<h:outputLabel value="Telefonas: "></h:outputLabel>
-						<p:inputMask value="#{studentData.newStudent.phoneNumber}" mask="+370 9 999 9999" />
-						<h:outputLabel value="Elektroninis paštas: "></h:outputLabel>
-						<p:inputText value="#{studentData.newStudent.email}" />
-						<h:outputLabel for="education" value="Išsilavinimas: "></h:outputLabel>
-						<p:selectOneMenu id="education" value="kintamasis 'education'">
-							<f:selectItem itemLabel="Išsilavinimas" itemValue="" />
-							<f:selectItems value="kintamasis 'educationList'" />
-						</p:selectOneMenu>
-						<h:outputLabel value="Baigė mokymo įstaigą: "></h:outputLabel>
-						<p:inputText value="#{studentData.newStudent.school}" />
-						<h:outputLabel value="Mokyklos baigimo metai: "></h:outputLabel>
-						<h:inputText value="#{studentData.newStudent.schoolGraduationYear}">
-						<f:convertDateTime pattern="yyyy-MM-dd" />
-						</h:inputText>
-						<h:outputLabel for="maritalStatus"
-							value="Moksleivio šeimyninė padėtis: "></h:outputLabel>
-						<p:selectOneMenu id="maritalStatus"
-							value="kintamasis 'maritalStatus'">
-							<f:selectItem itemLabel=";)" itemValue="" />
-							<f:selectItems value="kintamasis 'maritalStatList'" />
-						</p:selectOneMenu>
+			<p:fieldset styleClass="margin" legend="Informacija apie mokinį:"
+				style="width:410px; color:#585858">
+				<h:panelGrid styleClass="textRight" columns="2" autoWidth="false">
+
+					<p:outputLabel value="Vardas: "/>
+					<p:inputText value="#{studentData.newStudent.firstName}" />
+
+					<h:outputLabel value="Pavardė: "/>
+					<p:inputText value="#{studentData.newStudent.lastName}" />
+
+					<h:outputLabel value="Gimimo data: "/>
+					<p:calendar pattern="yyyy-MM-dd" navigator="true" mask="9999-99-99"
+						value="#{studentData.newStudent.dateOfBirth}" />
+
+					<h:outputLabel value="Adresas: "/>
+					<p:inputText value="#{studentData.newStudentInfo.address}" />
+					
+					<p:outputLabel for="savivaldybe" value="Savivaldybė: " />
+					<p:selectOneMenu style="width: 75% !important" id="savivaldybe"
+						value="#{studentData.newStudentInfo.municipality}">
+						<f:selectItem itemLabel="Savivaldybė" itemValue="" />
+						<f:selectItems value="#{studentPage.municipalityMap()}" />
+					</p:selectOneMenu>
+
+					<h:outputLabel value="Telefonas: "/>
+					<p:inputMask value="#{studentData.newStudentInfo.phoneNumber}"
+						mask="+370 9 999 9999" />
+
+					<h:outputLabel value="Elektroninis paštas: "/>
+					<p:inputText value="#{studentData.newStudentInfo.email}" />
+					
+					<h:outputLabel for="education" value="Išsilavinimas: "/>		
+					<p:selectOneMenu style="width: 75% !important" id="education" value="#{studentData.newEducation.education}">
+						<f:selectItem itemLabel="Išsilavinimas" itemValue="" />
+						<f:selectItems value="#{studentPage.educationMap()}" />
+					</p:selectOneMenu>
+
+					<h:outputLabel value="Baigė mokymo įstaigą: "/>
+					<p:inputText value="#{studentData.newEducation.school}" />
+
+					<h:outputLabel value="Mokyklos baigimo metai: "/>
+					<p:calendar pattern="yyyy-MM-dd" navigator="true" mask="9999-99-99"
+						value="#{studentData.newEducation.schoolGraduationYear}" />
+
+					<h:outputLabel for="maritalStatus"
+						value="Moksleivio šeimyninė padėtis: "/>
+					<p:selectOneMenu style="width: 75% !important" id="maritalStatus"
+						value="#{studentData.newStudentInfo.maritalStatus}">
+						<f:selectItem itemLabel="Šeimyninė padėtis" itemValue="" />
+						<f:selectItems value="#{studentPage.maritalStatusMap()}" />
+					</p:selectOneMenu>
+
+				</h:panelGrid>
+			</p:fieldset>
+
+			<p:fieldset styleClass="margin"
+				legend="Duomenys apie tėvus/globėjus:"
+				style="width:410px; color:#585858">
+				<p:fieldset styleClass="margin" legend="Tėvas:" toggleable="true"
+					toggleSpeed="300" style="width:360px; color:#585858">
+					<h:panelGrid styleClass="textRight" columns="2">
+						<h:outputLabel value="Vardas: "/>
+						<p:inputText value="#{studentData.newParentInfo.fatherFirstName}" />
+						<h:outputLabel value="Pavardė: "/>
+						<p:inputText value="#{studentData.newParentInfo.fatherLastName}" />
+						<h:outputLabel value="Adresas: "/>
+						<p:inputText value="#{studentData.newParentInfo.fatherAddress}" />
+						<h:outputLabel value="Telefonas: "/>
+						<p:inputMask value="#{studentData.newParentInfo.fatherPhone}" mask="+370 9 999 9999" />
 					</h:panelGrid>
 				</p:fieldset>
 
-
-
-				<p:fieldset legend="Duomenys apie tėvus/globėjus:"
-					style="width:420px; color:#585858">
-					<p:fieldset legend="Tėvas:" toggleable="true" toggleSpeed="300"
-						style="width:380px; color:#585858">
-						<h:panelGrid columns="2">
-							<h:outputLabel value="Vardas: "></h:outputLabel>
-							<p:inputText  />
-							<h:outputLabel value="Pavardė: "></h:outputLabel>
-							<p:inputText  />
-							<h:outputLabel value="Adresas: "></h:outputLabel>
-							<p:inputText  />
-							<h:outputLabel value="Telefonas: "></h:outputLabel>
-							<p:inputMask  mask="+370 9 999 9999" />
-						</h:panelGrid>
-					</p:fieldset>
-
-					<p:fieldset legend="Motina:" toggleable="true" toggleSpeed="300"
-						style="width:380px; color:#585858">
-						<h:panelGrid columns="2">
-							<h:outputLabel value="Vardas: "></h:outputLabel>
-							<p:inputText  />
-							<h:outputLabel value="Pavardė: "></h:outputLabel>
-							<p:inputText  />
-							<h:outputLabel value="Adresas: "></h:outputLabel>
-							<p:inputText  />
-							<h:outputLabel value="Telefonas: "></h:outputLabel>
-							<p:inputMask  mask="+370 9 999 9999" />
-						</h:panelGrid>
-					</p:fieldset>
-
-					<p:fieldset legend="Globėjas(-a)" toggleable="true"
-						toggleSpeed="300" style="width:380px; color:#585858">
-						<h:panelGrid columns="2">
-							<h:outputLabel value="Vardas: "></h:outputLabel>
-							<p:inputText  />
-							<h:outputLabel value="Pavardė: "></h:outputLabel>
-							<p:inputText  />
-							<h:outputLabel value="Adresas: "></h:outputLabel>
-							<p:inputText  />
-							<h:outputLabel value="Telefonas: "></h:outputLabel>
-							<p:inputMask  mask="+370 9 999 9999" />
-						</h:panelGrid>
-					</p:fieldset>
+				<p:fieldset styleClass="margin" legend="Motina:" toggleable="true"
+					toggleSpeed="300" style="width:360px; color:#585858">
+					<h:panelGrid styleClass="textRight" columns="2">
+						<h:outputLabel value="Vardas: "/>
+						<p:inputText value="#{studentData.newParentInfo.motherFirstName}" />
+						<h:outputLabel value="Pavardė: "/>
+						<p:inputText value="#{studentData.newParentInfo.motherLastName}" />
+						<h:outputLabel value="Adresas: "/>
+						<p:inputText value="#{studentData.newParentInfo.motherAddress}" />
+						<h:outputLabel value="Telefonas: "/>
+						<p:inputMask value="#{studentData.newParentInfo.motherPhone}" mask="+370 9 999 9999" />
+					</h:panelGrid>
 				</p:fieldset>
 
+				<p:fieldset styleClass="margin" legend="Globėjas(-a)"
+					toggleable="true" toggleSpeed="300"
+					style="width:360px; color:#585858">
+					<h:panelGrid styleClass="textRight" columns="2">
+						<h:outputLabel value="Vardas: "/>
+						<p:inputText value="#{studentData.newParentInfo.guardianFirstName}" />
+						<h:outputLabel value="Pavardė: "/>
+						<p:inputText value="#{studentData.newParentInfo.guardianLastName}" />
+						<h:outputLabel value="Adresas: "/>
+						<p:inputText value="#{studentData.newParentInfo.guardianAddress}" />
+						<h:outputLabel value="Telefonas: "/>
+						<p:inputMask value="#{studentData.newParentInfo.guardianPhone}" mask="+370 9 999 9999" />
+					</h:panelGrid>
+				</p:fieldset>
+			</p:fieldset>
 		</div>
 
 		<div class="rightContinent">
 
-				<p:fieldset legend="Pridedama prie prašymo:"
-					style="width:520px; color:#585858">
-					<h:panelGrid columns="2">
-						<h:outputText value="Išsilavinimo dokumentas: " />
-						<p:selectBooleanCheckbox  />
-						<h:outputText value="Sveikatos pažymėjimas: " />
-						<p:selectBooleanCheckbox  />
-						<h:outputText value="Nuotraukos 3x4 (2-4 vnt.): " />
-						<p:selectBooleanCheckbox  />
-						<h:outputText value="Paso kopija (tapatybės kortelės kopija): " />
-						<p:selectBooleanCheckbox  />
-						<h:outputText value="Šauktinio liudijimas: " />
-						<p:selectBooleanCheckbox  />
-						<h:outputText value="Stojamasis mokestis: " />
-						<p:selectBooleanCheckbox  />
-					</h:panelGrid>
-				</p:fieldset>
+			<p:fieldset styleClass="margin" legend="Pridedama prie prašymo:"
+				style="width:520px; color:#585858">
+				<h:panelGrid styleClass="textRight" columns="2">
+					<h:outputText value="Išsilavinimo dokumentas: " />
+					<p:selectBooleanCheckbox value="#{studentData.newRequest.credential}" />
+					<h:outputText value="Sveikatos pažymėjimas: " />
+					<p:selectBooleanCheckbox value="#{studentData.newRequest.medicalCertificate}" />
+					<h:outputText value="Nuotraukos 3x4 (2-4 vnt.): " />
+					<p:selectBooleanCheckbox value="#{studentData.newRequest.photo}" />
+					<h:outputText value="Paso kopija (tapatybės kortelės kopija): " />
+					<p:selectBooleanCheckbox value="#{studentData.newRequest.passportCopy}" />
+					<h:outputText value="Šauktinio liudijimas: " />
+					<p:selectBooleanCheckbox value="#{studentData.newRequest.drafteeCertificate}" />
+					<h:outputText value="Stojamasis mokestis: " />
+					<p:selectBooleanCheckbox value="#{studentData.newRequest.entranceFee}" />
+				</h:panelGrid>
+			</p:fieldset>
 
+			<p:fieldset styleClass="margin"
+				legend="Jei mokosi antrą kartą, papildomai pateikti šiuos duomenis:"
+				style="width:520px; color:#585858">
+				<h:panelGrid styleClass="textRight" columns="2">
+					<h:outputLabel value="Įgyta specialybė: "/>
+					<p:inputText value="#{studentData.newEducation.speciality}" />
+					<h:outputLabel value="Institucijos pavadinimas: "/>
+					<p:inputText value="#{studentData.newEducation.nameOfInstitution}" />
+					
+					<h:outputLabel for="institution" value="Institucijos tipas: "/>
+					<p:selectOneMenu style="width: 75% !important" id="institution" value="#{studentData.newEducation.institutionType}">
+						<f:selectItem itemLabel="Institucija" itemValue="" />
+						<f:selectItems value="#{studentPage.institutionTypeMap()}" />
+					</p:selectOneMenu>
+					
+					<h:outputLabel value="Baigimo metai: "/>
+					<p:calendar pattern="yyyy-MM-dd" navigator="true" mask="9999-99-99" 
+					value="#{studentData.newEducation.institutionGraduationYear}"/>
 
+				</h:panelGrid>
+			</p:fieldset>
 
-				<p:fieldset
-					legend="Jei mokosi antrą kartą, papildomai pateikti šiuos duomenis:"
-					style="width:520px; color:#585858">
-					<h:panelGrid columns="2">
-						<h:outputLabel value="Įgyta specialybė: "></h:outputLabel>
-						<p:inputText  />
-						<h:outputLabel value="Institucijos pavadinimas: "></h:outputLabel>
-						<p:inputText  />
-						<h:outputLabel for="institution" value="Institucijos tipas: "></h:outputLabel>
-						<p:selectOneMenu id="institution" value="kintamasis 'institution'">
-							<f:selectItem itemLabel="Institutita" itemValue="" />
-							<f:selectItems value="kintamasis 'institutionList'" />
-						</p:selectOneMenu>
-						<h:outputLabel value="Baigimo metai: "></h:outputLabel>
-						<p:inputMask  mask="9999-99-99" />
-					</h:panelGrid>
-				</p:fieldset>
+			<p:fieldset styleClass="margin"
+				legend="Prašymas (informacija apie prašymą):"
+				style="width:520px; color:#585858">
+				<h:panelGrid styleClass="textRight" columns="2">
+					<h:outputLabel value="Priėmimo prašymo data: "/>
+					<p:calendar pattern="yyyy-MM-dd" navigator="true" mask="9999-99-99"
+						value="#{studentData.newRequest.requestdate}" />
+					<h:outputLabel value="Grupė: "/>
+					<p:inputText value="#{studentData.newRequest.unit}" />
+					<h:outputLabel value="Pakopa: "/>
+					<p:inputText value="#{studentData.newRequest.stage}" />
+				</h:panelGrid>
+			</p:fieldset>
 
+			<p:fieldset styleClass="moreInfo" legend="Papildoma informacija:"
+				style="width:520px; color:#585858">
+				<h:panelGrid columns="2" cellpadding="15">
+					<h:outputText value="Ar reikalingas bendrabutis: " />
+					<p:selectOneRadio value="#{studentData.newRequest.dormitory}">
+						<f:selectItem itemValue="Taip" itemLabel="Taip" />
+						<f:selectItem itemValue="Ne" itemLabel="Ne" />
+					</p:selectOneRadio>
+					
+					
 
+					
+					
+				</h:panelGrid>
+					<h:outputText for="info"
+						value="Iš kur sužinojote apie mūsų įstaigą: " />
+				<h:panelGrid columns="4">
+					<h:outputText value="Draugų: " />
+					<p:selectBooleanCheckbox value="#{studentData.newAdditionalInfo.fromFriends}" />
+					<h:outputText value="Interneto: " />
+					<p:selectBooleanCheckbox value="#{studentData.newAdditionalInfo.fromWeb}" />
+					<h:outputText value="Leidinio 'Kur Stoti?': " />
+					<p:selectBooleanCheckbox value="#{studentData.newAdditionalInfo.fromPublication}" />
+					<h:outputText value="Mokykloje: " />
+					<p:selectBooleanCheckbox value="#{studentData.newAdditionalInfo.fromSchool}" />
+					<h:outputText value="Reklamoje: " />
+					<p:selectBooleanCheckbox value="#{studentData.newAdditionalInfo.fromAds}" />
+					<h:outputText value="Proforientacijos metu: " />
+					<p:selectBooleanCheckbox value="#{studentData.newAdditionalInfo.fromProf}" />
+					<h:outputText value="Kita.." />
+					<p:selectBooleanCheckbox value="#{studentData.newAdditionalInfo.other}" />
+				</h:panelGrid>
+			</p:fieldset>
 
-				<p:fieldset legend="Prašymas (informacija apie prašymą):"
-					style="width:520px; color:#585858">
-					<h:panelGrid columns="2">
-						<h:outputLabel value="Priėmimo prašymo data: "></h:outputLabel>
-						<h:inputText value="#{studentData.newRequest.requestdate}">
-						<f:convertDateTime pattern="yyyy-MM-dd" />
-						</h:inputText>
-						<h:outputLabel value="Grupė: "></h:outputLabel>
-						<p:inputText value="#{studentData.newRequest.unit}" />
-						<h:outputLabel value="Pakopa: "></h:outputLabel>
-						<p:inputText value="#{studentData.newRequest.stage}" />
-					</h:panelGrid>
-				</p:fieldset>
+			<p:fieldset styleClass="margin" legend="Dokumentai..."
+				style="width:520px; color:#585858">
+				<h:panelGrid styleClass="textRight" columns="2" cellpadding="15">
+					<h:outputText value="Mokinys atsiemė dokumentus. " />
+					<p:selectBooleanButton onLabel="Taip" offLabel="Ne"
+						onIcon="ui-icon-check" value="#{studentData.newRequest.documentsWithdrawn}" offIcon="ui-icon-close" style="width:100px" />
+				</h:panelGrid>
+			</p:fieldset>
 
-
-
-				<p:fieldset legend="Papildoma informacija:"
-					style="width:520px; color:#585858">
-					<h:panelGrid columns="2" cellpadding="15">
-						<h:outputText value="Ar reikalingas bendrabutis: " />
-						<p:selectOneRadio >
-							<f:selectItem itemValue="Taip" itemLabel="Taip" />
-							<f:selectItem itemValue="Ne" itemLabel="Ne" />
-						</p:selectOneRadio>
-
-						<h:outputText for="info"
-							value="Iš kur sužinojote apie mūsų įstaigą: " />
-						<p:selectManyCheckbox columns="2"
-							layout="grid">
-							<f:selectItem itemValue="draugu" itemLabel="Draugų" />
-							<f:selectItem itemValue="interneto" itemLabel="Interneto" />
-							<f:selectItem itemValue="zurnalo"
-								itemLabel='Leidinio "Kur Stoti?"' />
-							<f:selectItem itemValue="mokykloje" itemLabel="Mokykloje" />
-							<f:selectItem itemValue="reklamoje" itemLabel="Reklamoje" />
-							<f:selectItem itemValue="proforientacija"
-								itemLabel="Proforientacijos metu" />
-							<f:selectItem itemValue="kita" itemLabel="kita.." />
-						</p:selectManyCheckbox>
-					</h:panelGrid>
-				</p:fieldset>
-
-
-			<h:form styleClass="margin">
-				<p:fieldset legend="Dokumentai..."
-					style="width:520px; color:#585858">
-					<h:panelGrid columns="2" cellpadding="15">
-						<h:outputText value="Mokinys atsiemė dokumentus. " />
-						<p:selectBooleanButton onLabel="Taip" offLabel="Ne"
-							onIcon="ui-icon-check" offIcon="ui-icon-close"
-							style="width:100px" />
-					</h:panelGrid>
-				</p:fieldset>
-			</h:form>
-		
-						<h:commandButton action="#{studentPage.addNew()}" value="Add new"
-					update="grid"></h:commandButton>
-		  </div>
+				<h:commandButton styleClass="buttonAdd"
+					action="#{studentPage.addNew()}" value="Pridėti naują mokinį"
+					update="grid"/>
 		</div>
 	</h:form>
 </h:body>
