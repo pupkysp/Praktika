@@ -6,6 +6,7 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<class>lt.vtvpmc.emprs.entities.Student</class>
 		<class>lt.vtvpmc.emprs.entities.Request</class>
+		<class>lt.vtvpmc.emprs.entities.CurriculumSubjects</class>
 		<class>lt.vtvpmc.emprs.entities.Education</class>
 		<class>lt.vtvpmc.emprs.entities.ParentInfo</class>
 		<class>lt.vtvpmc.emprs.entities.StudentInfo</class>

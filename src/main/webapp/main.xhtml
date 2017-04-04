@@ -13,12 +13,13 @@
 	<h:graphicImage styleClass="logo" library="images" name="EMS_logo.png"
 		alt="" />
 	<h1>Pagrindinis vaizdas</h1>
+
 	<h:form>
 		<h:panelGrid styleClass="block" columns="1">
 			<p:commandButton styleClass="button"
 				value="Moksleivio registracijos forma" action="addNewStudent" />
 			<p:commandButton styleClass="button"
-				value="Moksleivio mokymo plano sudarymas" action="#" />
+				value="Moksleivio mokymo plano sudarymas" action="makeCurriculum" />
 			<p:commandButton styleClass="button"
 				value="Moksleivio informacijos peržiūrėjimas"
 				action="studentInformation" />
@@ -26,5 +27,6 @@
 				value="Moksleivio mokymo plano peržiūrėjimas" action="#" />
 		</h:panelGrid>
 	</h:form>
+
 </h:body>
 </html>
