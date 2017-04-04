@@ -79,9 +79,6 @@
 
 	<bean id="listBean" class="lt.vtvpmc.emprs.ui.ListBean" />
 		
-	<bean id="studentData" class="lt.vtvpmc.emprs.ui.StudentPage.StudentData" scope="session"
-		init-method="init" />
-
 
 	<bean id="studentPage" class="lt.vtvpmc.emprs.ui.StudentPage"
 		scope="request">
