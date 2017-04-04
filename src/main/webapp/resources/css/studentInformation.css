@@ -1,0 +1,82 @@
+body {
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	margin: 40px 0px 0px 0px;
+}
+
+.logo {
+	height: 110px; 
+	width: 800px;
+}
+
+.block {
+	display: inline;
+	text-align: center;
+}
+
+.search{
+	text-align: center;
+	display: inline-block;
+	margin: 0px 5px 10px 5px;
+	background: #57FD04;
+}
+
+.continent {
+	display: inline-block;
+	margin: 0px 5px 10px 5px;
+	background: #57FD04;
+}
+
+.button {
+	background: linear-gradient(to bottom, #57FD04 0%, #18AC16 100%);
+	height: 50px; 
+	width: 400px;
+	margin: 5px 5px 5px 5px;
+	font-size: 25px;
+}
+
+.leftContinent {
+	display: inline;
+	float: left;
+	background: #57FD04;
+}
+
+.rightContinent {
+	display: inline;
+	text-align: right;
+	float: left;
+	background: #57FD04;
+}
+
+.gap{
+	clear: both;
+}
+
+.margin {
+	margin: 0px 5px 10px 5px;
+	background: #ffffff;
+	text-align: left;
+}
+
+.textRight{
+	text-align:right;
+}
+
+.moreInfo {
+	margin: 0px 5px 10px 5px;
+	text-align: left;
+	background: #ffffff;
+}
+
+.buttonAdd {
+	background: linear-gradient(to bottom, #20e6ae 0%, #08f036 100%);
+	height: 62px; 
+	width: 90px;
+	margin: 5px 5px 5px 5px;
+	font-size: 25px;
+	border-radius: 50%;
+}
+
+.buttonAdd:hover {
+	background: linear-gradient(to bottom, #08f036 0%, #20e6ae 100%);
