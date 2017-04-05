@@ -25,7 +25,7 @@
 
 			<p:fieldset styleClass="margin" legend="Informacija apie mokinį:"
 				style="width:410px; color:#585858">
-				<h:panelGrid styleClass="textRight" columns="2" >
+				<h:panelGrid styleClass="textRight" columns="2">
 
 					<p:outputLabel value="Vardas: " />
 					<p:inputText value="#{studentData.newStudent.firstName}" />
@@ -41,11 +41,14 @@
 					<p:inputText value="#{studentData.newStudentInfo.address}" />
 
 					<p:outputLabel for="savivaldybe" value="Savivaldybė: " />
-					<h:selectOneMenu id="savivaldybe" 
+					<p:selectOneMenu autoWidth="false" style="width:155px"
+						id="savivaldybe"
 						value="#{studentData.newStudentInfo.municipality}">
-						<f:selectItem itemLabel="Savivaldybė" itemValue="" />
-						<f:selectItems value="#{studentPage.municipalityMap()}" />
-					</h:selectOneMenu>
+						<f:selectItem autoWidth="false" style="width:155px"
+							itemLabel="Savivaldybė" itemValue="" />
+						<f:selectItems autoWidth="false" style="width:155px"
+							value="#{studentPage.municipalityMap()}" />
+					</p:selectOneMenu>
 
 					<h:outputLabel value="Telefonas: " />
 					<p:inputMask value="#{studentData.newStudentInfo.phoneNumber}"
@@ -55,10 +58,12 @@
 					<p:inputText value="#{studentData.newStudentInfo.email}" />
 
 					<h:outputLabel for="education" value="Išsilavinimas: " />
-					<p:selectOneMenu autoWidth="false" style="width:80%" id="education"
-						value="#{studentData.newEducation.education}">
-						<f:selectItem itemLabel="Išsilavinimas" itemValue="" />
-						<f:selectItems value="#{studentPage.educationMap()}" />
+					<p:selectOneMenu autoWidth="false" style="width:155px"
+						id="education" value="#{studentData.newEducation.education}">
+						<f:selectItem autoWidth="false" style="width:155px"
+							itemLabel="Išsilavinimas" itemValue="" />
+						<f:selectItems autoWidth="false" style="width:155px"
+							value="#{studentPage.educationMap()}" />
 					</p:selectOneMenu>
 
 					<h:outputLabel value="Baigė mokymo įstaigą: " />
@@ -70,10 +75,13 @@
 
 					<h:outputLabel for="maritalStatus"
 						value="Moksleivio šeimyninė padėtis: " />
-					<p:selectOneMenu autoWidth="false" style="width:80%" id="maritalStatus"
+					<p:selectOneMenu autoWidth="false" style="width:155px"
+						id="maritalStatus"
 						value="#{studentData.newStudentInfo.maritalStatus}">
-						<f:selectItem itemLabel="Šeimyninė padėtis" itemValue="" />
-						<f:selectItems value="#{studentPage.maritalStatusMap()}" />
+						<f:selectItem autoWidth="false" style="width:155px"
+							itemLabel="Šeimyninė padėtis" itemValue="" />
+						<f:selectItems autoWidth="false" style="width:155px"
+							value="#{studentPage.maritalStatusMap()}" />
 					</p:selectOneMenu>
 				</h:panelGrid>
 			</p:fieldset>
@@ -165,10 +173,13 @@
 					<p:inputText value="#{studentData.newEducation.nameOfInstitution}" />
 
 					<h:outputLabel for="institution" value="Institucijos tipas: " />
-					<p:selectOneMenu autoWidth="false" style="width:80%" id="institution"
+					<p:selectOneMenu autoWidth="false" style="width:155px"
+						id="institution"
 						value="#{studentData.newEducation.institutionType}">
-						<f:selectItem itemLabel="Institucija" itemValue="" />
-						<f:selectItems value="#{studentPage.institutionTypeMap()}" />
+						<f:selectItem autoWidth="false" style="width:155px"
+							itemLabel="Institucija" itemValue="" />
+						<f:selectItems autoWidth="false" style="width:155px"
+							value="#{studentPage.institutionTypeMap()}" />
 					</p:selectOneMenu>
 
 					<h:outputLabel value="Baigimo metai: " />
@@ -201,7 +212,7 @@
 						<f:selectItem itemValue="Ne" itemLabel="Ne" />
 					</p:selectOneRadio>
 				</h:panelGrid>
-				
+
 				<h:outputText for="info"
 					value="Iš kur sužinojote apie mūsų įstaigą: " />
 				<h:panelGrid columns="4">
