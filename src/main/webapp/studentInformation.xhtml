@@ -18,6 +18,7 @@
 				action="main"></p:commandButton>
 		</h:panelGrid>
 	</h:form>
+
 	<h:form styleClass="search">
 		<p:fieldset styleClass="margin" legend="Mokinio paieška:"
 			style="width:94%; color:#585858">
@@ -32,8 +33,9 @@
 				<p:calendar pattern="yyyy-MM-dd" navigator="true" mask="9999-99-99"
 					value="#{studentData.newStudent.dateOfBirth}" />
 
-				<h:commandButton styleClass="buttonAdd" action="studentInformation"
-					value="Ieškoti" actionListener="#" update="@(form)" />
+				<h:commandButton styleClass="buttonSearch"
+					action="studentInformation" value="Ieškoti" actionListener="#"
+					update="@(form)" />
 
 			</h:panelGrid>
 		</p:fieldset>
@@ -135,17 +137,17 @@
 					style="width:520px; color:#585858">
 					<h:panelGrid styleClass="textRight" columns="2">
 						<h:outputText value="Išsilavinimo dokumentas: " />
-					
+						#{studentData.newRequest.credential}
 						<h:outputText value="Sveikatos pažymėjimas: " />
-						
+						#{studentData.newRequest.medicalCertificate}
 						<h:outputText value="Nuotraukos 3x4 (2-4 vnt.): " />
-						
+						#{studentData.newRequest.photo}
 						<h:outputText value="Paso kopija (tapatybės kortelės kopija): " />
-						
+						#{studentData.newRequest.passportCopy}
 						<h:outputText value="Šauktinio liudijimas: " />
-						
+						#{studentData.newRequest.drafteeCertificate}
 						<h:outputText value="Stojamasis mokestis: " />
-					
+						#{studentData.newRequest.entranceFee}
 					</h:panelGrid>
 				</p:fieldset>
 
@@ -181,10 +183,27 @@
 					style="width:520px; color:#585858">
 					<h:panelGrid columns="2">
 						<h:outputText value="Ar reikalingas bendrabutis: " />
-						
+						#{studentData.newRequest.dormitory}
 
 						<h:outputText value="Iš kur sužinojote apie mūsų įstaigą: " />
-						
+						<h:panelGrid columns="4" border="1">
+							<h:outputText value="Draugų: " />
+							<h:outputText
+								value="#{studentData.newAdditionalInfo.fromFriends}" />
+							<h:outputText value="Interneto: " />
+							<h:outputText value="#{studentData.newAdditionalInfo.fromWeb}" />
+							<h:outputText value="Leidinio 'Kur Stoti?': " />
+							<h:outputText
+								value="#{studentData.newAdditionalInfo.fromPublication}" />
+							<h:outputText value="Mokykloje: " />
+							<h:outputText value="#{studentData.newAdditionalInfo.fromSchool}" />
+							<h:outputText value="Reklamoje: " />
+							<h:outputText value="#{studentData.newAdditionalInfo.fromAds}" />
+							<h:outputText value="Proforientacijos metu: " />
+							<h:outputText value="#{studentData.newAdditionalInfo.fromProf}" />
+							<h:outputText value="Kita.." />
+							<h:outputText value="#{studentData.newAdditionalInfo.other}" />
+						</h:panelGrid>
 					</h:panelGrid>
 				</p:fieldset>
 
@@ -192,7 +211,7 @@
 					style="width:520px; color:#585858">
 					<h:panelGrid styleClass="textRight" columns="2" cellpadding="15">
 						<h:outputText value="Mokinys atsiemė dokumentus. " />
-						
+						#{studentData.newRequest.documentsWithdrawn}
 					</h:panelGrid>
 				</p:fieldset>
 

@@ -5,11 +5,6 @@ body {
 	margin: 40px 0px 0px 0px;
 }
 
-.logo {
-	height: 110px; 
-	width: 800px;
-}
-
 .block {
 	display: inline;
 	text-align: center;
@@ -18,11 +13,12 @@ body {
 .continent {
 	display: inline-block;
 	margin: 0px 5px 10px 5px;
-	background: #57FD04;
+	background: #00b33c;
 }
 
 .button {
-	background: linear-gradient(to bottom, #57FD04 0%, #18AC16 100%);
+	background: linear-gradient(to bottom, #00b33c 0%, #004d1a 100%);
+	color: #00cc00;
 	height: 50px; 
 	width: 400px;
 	margin: 5px 5px 5px 5px;
@@ -32,14 +28,14 @@ body {
 .leftContinent {
 	display: inline;
 	float: left;
-	background: #57FD04;
+	background: #00b33c;
 }
 
 .rightContinent {
 	display: inline;
 	text-align: right;
 	float: left;
-	background: #57FD04;
+	background: #00b33c;
 }
 
 .gap{
@@ -68,8 +64,9 @@ body {
 	width: 400px;
 	margin: 5px 5px 5px 5px;
 	font-size: 25px;
-	border-radius: 50%;
+	border-radius: 25%;
 }
 
 .buttonAdd:hover {
 	background: linear-gradient(to bottom, #08f036 0%, #20e6ae 100%);
+}

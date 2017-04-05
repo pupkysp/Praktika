@@ -16,7 +16,8 @@ body {
 }
 
 .button {
-	background: linear-gradient(to bottom, #57FD04 0%, #18AC16 100%);
+	background: linear-gradient(to bottom, #00b33c 0%, #004d1a 100%);
+	color: #00cc00;
 	height: 100px; 
 	width: 600px;
 	margin: 5px 5px 5px 5px;
