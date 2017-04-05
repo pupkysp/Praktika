@@ -25,6 +25,7 @@ body {
 
 .button {
 	background: linear-gradient(to bottom, #00b33c 0%, #004d1a 100%);
+	color: #00cc00;
 	height: 50px; 
 	width: 400px;
 	margin: 5px 5px 5px 5px;
