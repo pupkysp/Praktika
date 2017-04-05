@@ -25,7 +25,7 @@ public class EducationDao implements EducationRepo{
 	public Education findById(Long id) {
 		EntityManager em = getEntityManager();
 		try {
-			TypedQuery<Education> invoiceQuery = em.createQuery("SELECT i From Invoice i WHERE i.id =:id", Education.class);
+			TypedQuery<Education> invoiceQuery = em.createQuery("SELECT e From Education e WHERE e.id =:id", Education.class);
 			invoiceQuery.setParameter("id", id);
 			invoiceQuery.setMaxResults(1);
 

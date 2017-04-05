@@ -23,7 +23,7 @@ public class RequestDao implements RequestRepo{
 	public Request findById(Long id) {
 		EntityManager em = getEntityManager();
 		try {
-			TypedQuery<Request> invoiceQuery = em.createQuery("SELECT i From Invoice i WHERE i.id =:id", Request.class);
+			TypedQuery<Request> invoiceQuery = em.createQuery("SELECT r From Request r WHERE r.id =:id", Request.class);
 			invoiceQuery.setParameter("id", id);
 			invoiceQuery.setMaxResults(1);
 
