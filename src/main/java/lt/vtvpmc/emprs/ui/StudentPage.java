@@ -30,6 +30,8 @@ public class StudentPage {
 	
 	public static final String NAV_SHOW_INDEX = "show-index-page";
 	
+	public static final String NAV_SHOW_VIEW = "show-view-page";
+	
 	static final Logger log = LoggerFactory.getLogger(StudentPage.class);
 	
 	public static class StudentData implements Serializable {		
@@ -40,24 +42,37 @@ public class StudentPage {
 		private Student newStudent;
 		
 		@Valid
+		private Student currentStudent;
+		
+		@Valid
 		private Education newEducation;
+		
+		@Valid
+		private Education currentEducation;
 		
 		@Valid
 		private StudentInfo newStudentInfo;
 		
 		@Valid
-		private Student currentStudent;
-		
-		private List<Student> foundStudents;
-		
+		private StudentInfo currentStudentInfo;
+				
 		@Valid
 		private Request newRequest;
+		
+		@Valid
+		private Request currentRequest;
 		
 		@Valid
 		private ParentInfo newParentInfo;
 		
 		@Valid
+		private ParentInfo currentParentInfo;
+		
+		@Valid
 		private AdditionalInfo newAdditionalInfo;
+		
+		@Valid
+		private AdditionalInfo currentAdditionalInfo;
 			
 		
 		public void init() {
@@ -71,8 +86,6 @@ public class StudentPage {
 			newRequest = new Request();
 			
 			newStudent = new Student();
-			
-			foundStudents = new ArrayList<Student>();
 			
 			newAdditionalInfo = new AdditionalInfo();
 			
@@ -142,13 +155,67 @@ public class StudentPage {
 			this.currentStudent = currentStudent;
 		}
 
-		public List<Student> getFoundStudents() {
-			return foundStudents;
+		
+
+		public Education getCurrentEducation() {
+			return currentEducation;
 		}
 
-		public void setFoundStudents(List<Student> foundStudents) {
-			this.foundStudents = foundStudents;
+
+
+		public void setCurrentEducation(Education currentEducation) {
+			this.currentEducation = currentEducation;
 		}
+
+
+
+		public StudentInfo getCurrentStudentInfo() {
+			return currentStudentInfo;
+		}
+
+
+
+		public void setCurrentStudentInfo(StudentInfo currentStudentInfo) {
+			this.currentStudentInfo = currentStudentInfo;
+		}
+
+
+
+		public Request getCurrentRequest() {
+			return currentRequest;
+		}
+
+
+
+		public void setCurrentRequest(Request currentRequest) {
+			this.currentRequest = currentRequest;
+		}
+
+
+
+		public ParentInfo getCurrentParentInfo() {
+			return currentParentInfo;
+		}
+
+
+
+		public void setCurrentParentInfo(ParentInfo currentParentInfo) {
+			this.currentParentInfo = currentParentInfo;
+		}
+
+
+
+		public AdditionalInfo getCurrentAdditionalInfo() {
+			return currentAdditionalInfo;
+		}
+
+
+
+		public void setCurrentAdditionalInfo(AdditionalInfo currentAdditionalInfo) {
+			this.currentAdditionalInfo = currentAdditionalInfo;
+		}
+
+
 
 		public AdditionalInfo getNewAdditionalInfo() {
 			return newAdditionalInfo;
@@ -207,6 +274,27 @@ public class StudentPage {
 		data.newAdditionalInfo = new AdditionalInfo();
 		
 		return NAV_SHOW_INDEX;
+		
+	}
+	
+	public String findStudentData() {
+
+		Student st = studentRepo.findByFNameLNameAndBDate(data.newStudent.getFirstName(),
+				data.newStudent.getLastName(),
+				data.newStudent.getDateOfBirth());
+
+		
+		data.currentStudent = st;
+		data.currentRequest = requestRepo.findById(st.getRequest().getId());
+		data.currentStudentInfo = studentInfoRepo.findById(st.getStudentInfo().getId());
+		data.currentParentInfo = parentInfoRepo.findById(st.getParentInfo().getId());
+		data.currentEducation = educationRepo.findById(data.currentStudentInfo.getEducation().getId());
+		
+		data.currentAdditionalInfo = additionalInfoRepo.findById(data.currentRequest.getAdditionalInfo().getId());
+		
+		data.newStudent = new Student();
+		
+		return NAV_SHOW_VIEW;
 		
 	}
 		
