@@ -13,4 +13,12 @@ public Student getStudentByName(String firstName, String lastName);
 
 public String getEducationByName(String firstName, String lastName);
 
+public CurriculumSubjects getCurriculumByID(Long id);
+
+public Long getStudentIdByName(String firstName, String lastName);
+
+public double getMandatorySubjectsTotalHoursByStudentId(Long id);
+
+public double getOptionalSubjectsTotalHoursByStudentId(Long id);
+
 }
