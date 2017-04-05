@@ -31,11 +31,14 @@
 		<slf4j-api.version>1.7.2</slf4j-api.version>
 		<spring-data-jpa.version>1.11.1.RELEASE</spring-data-jpa.version>
 		<spring.version>4.3.7.RELEASE</spring.version>
+		
 
 	</properties>
 
 	<dependencies>
 
+
+		
 		<!-- cglib -->
 		<dependency>
 			<groupId>cglib</groupId>
