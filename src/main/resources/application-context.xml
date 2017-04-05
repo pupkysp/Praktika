@@ -79,7 +79,6 @@
 
 	<bean id="listBean" class="lt.vtvpmc.emprs.ui.ListBean" />
 		
-
 	<bean id="studentPage" class="lt.vtvpmc.emprs.ui.StudentPage"
 		scope="request">
 		<property name="data" ref="studentData"></property>

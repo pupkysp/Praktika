@@ -5,6 +5,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 
 import lt.vtvpmc.emprs.entities.CurriculumSubjects;
+import lt.vtvpmc.emprs.entities.Student;
 import lt.vtvpmc.emprs.repositories.CurriculumRepo;
 
 public class CurriculumDao implements CurriculumRepo {
@@ -44,14 +45,15 @@ public class CurriculumDao implements CurriculumRepo {
 	}
 
 	@Override
-	public Long getIdByName(String firstName, String lastName) {
+	public Student getStudentByName(String firstName, String lastName) {
 		EntityManager em = getEntityManager();
 
 		try {
 			Query q1 = em.createQuery(
 					"SELECT id FROM Student WHERE FIRSTNAME='" + firstName + "' AND LASTNAME='" + lastName + "'");
 			Long result = (Long) q1.getSingleResult();
-			return result;
+			Student student = em.find(Student.class, result);
+			return student;
 		} finally {
 			em.close();
 		}

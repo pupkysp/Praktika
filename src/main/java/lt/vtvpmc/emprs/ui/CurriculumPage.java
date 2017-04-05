@@ -53,10 +53,11 @@ public class CurriculumPage {
 	}
 	
 	public void validate() {
-		Long ID = curriculumRepo.getIdByName(data.student.getFirstName(), data.student.getLastName());
 		String education = curriculumRepo.getEducationByName(data.student.getFirstName(), data.student.getLastName());
-		System.out.println(ID);
-		System.out.println(education);
+		if(education == "Pagrindinis išsilavinimas"){
+			data.newCurriculumSubjects.setStudent(curriculumRepo.getStudentByName(data.student.getFirstName(), data.student.getLastName()));
+			//nebaigtas message
+		} 
 	}
 
 	public CurriculumData getData() {
@@ -74,5 +75,4 @@ public class CurriculumPage {
 	public void setCurriculumRepo(CurriculumRepo curriculumRepo) {
 		this.curriculumRepo = curriculumRepo;
 	}
-	
 }
