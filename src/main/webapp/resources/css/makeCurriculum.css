@@ -1,3 +1,48 @@
-.inputForm tBody {
-	vertical-align: top;
+body {
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	margin: 40px 0px 0px 0px;
+}
+
+.block {
+	display: inline;
+	text-align: center;
+	background: #00b33c;
+}
+
+.button {
+	background: linear-gradient(to bottom, #00b33c 0%, #004d1a 100%);
+	color: #00cc00;
+	height: 50px; 
+	width: 400px;
+	margin: 5px 5px 5px 5px;
+	font-size: 25px;
+}
+
+.continent {
+	display: inline-block;
+	margin: 0px 5px 10px 5px;
+	background: #00b33c;
+}
+
+.leftContinent {
+	display: inline;
+	float: left;
+}
+
+.rightContinent {
+	display: inline;
+	text-align: right;
+	float: left;
+}
+
+.margin {
+	margin: 0px 5px 10px 5px;
+	background: #ffffff;
+	text-align: left;
+}
+
+.textRight{
+	text-align:right;
 }
