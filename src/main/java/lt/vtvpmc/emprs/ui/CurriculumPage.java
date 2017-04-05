@@ -17,13 +17,20 @@ public class CurriculumPage {
 
 		@Valid
 		private CurriculumSubjects newCurriculumSubjects;
-		
+
 		@Valid
 		private Student student;
+		
+		private double mandatorySubjectsHours;
+		private double optionalSubjectsHours;
+		private double totalCurriculumHours;
 
 		public void init() {
 			newCurriculumSubjects = new CurriculumSubjects();
 			student = new Student();
+			mandatorySubjectsHours = 0;
+			optionalSubjectsHours = 0;
+			totalCurriculumHours = 0;
 		}
 
 		public void setNewCurriculumSubjects(CurriculumSubjects newCurriculumSubjects) {
@@ -41,6 +48,30 @@ public class CurriculumPage {
 		public void setStudent(Student student) {
 			this.student = student;
 		}
+
+		public double getMandatorySubjectsHours() {
+			return mandatorySubjectsHours;
+		}
+
+		public void setMandatorySubjectsHours(int mandatorySubjectsHours) {
+			this.mandatorySubjectsHours = mandatorySubjectsHours;
+		}
+
+		public double getOptionalSubjectsHours() {
+			return optionalSubjectsHours;
+		}
+
+		public void setOptionalSubjectsHours(int optionalSubjectsHours) {
+			this.optionalSubjectsHours = optionalSubjectsHours;
+		}
+
+		public double getTotalCurriculumHours() {
+			return totalCurriculumHours;
+		}
+
+		public void setTotalCurriculumHours(int totalCurriculumHours) {
+			this.totalCurriculumHours = totalCurriculumHours;
+		}
 	}
 
 	private CurriculumData data;
@@ -51,13 +82,36 @@ public class CurriculumPage {
 		data.newCurriculumSubjects = new CurriculumSubjects();
 		return NAV_SHOW_INDEX;
 	}
-	
+
 	public void validate() {
 		String education = curriculumRepo.getEducationByName(data.student.getFirstName(), data.student.getLastName());
-		if(education == "Pagrindinis išsilavinimas"){
-			data.newCurriculumSubjects.setStudent(curriculumRepo.getStudentByName(data.student.getFirstName(), data.student.getLastName()));
-			//nebaigtas message
-		} 
+		data.newCurriculumSubjects
+				.setStudent(curriculumRepo.getStudentByName(data.student.getFirstName(), data.student.getLastName()));
+		// nebaigtas message
+	}
+
+	public void showCurriculum() {
+		Long id = curriculumRepo.getStudentIdByName(data.student.getFirstName(), data.student.getLastName());
+		data.newCurriculumSubjects = curriculumRepo.getCurriculumByID(id);
+		mandatorySubjectsHours();
+		optionalSubjectsHours();
+		totalCurriculumHours();
+	}
+
+	public void mandatorySubjectsHours() {
+		Long id = curriculumRepo.getStudentIdByName(data.student.getFirstName(), data.student.getLastName());
+		data.mandatorySubjectsHours = curriculumRepo.getMandatorySubjectsTotalHoursByStudentId(id);
+	}
+
+	public void optionalSubjectsHours() {
+		Long id = curriculumRepo.getStudentIdByName(data.student.getFirstName(), data.student.getLastName());
+		data.optionalSubjectsHours = curriculumRepo.getOptionalSubjectsTotalHoursByStudentId(id);
+	}
+
+	public void totalCurriculumHours() {
+		Long id = curriculumRepo.getStudentIdByName(data.student.getFirstName(), data.student.getLastName());
+		data.totalCurriculumHours = curriculumRepo.getMandatorySubjectsTotalHoursByStudentId(id)
+				+ curriculumRepo.getOptionalSubjectsTotalHoursByStudentId(id);
 	}
 
 	public CurriculumData getData() {

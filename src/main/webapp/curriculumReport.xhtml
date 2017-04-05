@@ -1,229 +1,281 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
-    <h:head>
-    <h:outputStylesheet name="curriculumReport.css" library="css" />
-        <title>Moksleivio mokymo plano peržiūrėjimas</title>
-        <style>
-			.dor {width:60px; text-align:right; margin-left:70px;}
-			.kal {width:100px; text-align:right; margin-left:120px;}
-			.soc {width:100px; text-align:right; margin-left:81px;}
-			.gam {width:100px; text-align:right; margin-left:56px;}
-			.kun {width:100px; text-align:right; margin-left:158px;}
-			.pas {width:100px; text-align:right; margin-left:117px;}
-			.isp {width:100px; text-align:right; margin-left:92px;}
-			.dal {width:100px; text-align:right; margin-left:141px;}
-        </style>
-    </h:head>
-    
-    <h:body>
-		<h1>Moksleivio mokymo plano peržiūrėjimas</h1>
-		<h:form>
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<h:outputStylesheet name="curriculumReport.css" library="css" />
+	<title>Moksleivio mokymo plano peržiūrėjimas</title>
+	<style>
+.dor {
+	width: 60px;
+	text-align: right;
+	margin-left: 70px;
+}
+
+.kal {
+	width: 100px;
+	text-align: right;
+	margin-left: 120px;
+}
+
+.soc {
+	width: 100px;
+	text-align: right;
+	margin-left: 81px;
+}
+
+.gam {
+	width: 100px;
+	text-align: right;
+	margin-left: 56px;
+}
+
+.kun {
+	width: 100px;
+	text-align: right;
+	margin-left: 158px;
+}
+
+.pas {
+	width: 100px;
+	text-align: right;
+	margin-left: 117px;
+}
+
+.isp {
+	width: 100px;
+	text-align: right;
+	margin-left: 92px;
+}
+
+.dal {
+	width: 100px;
+	text-align: right;
+	margin-left: 141px;
+}
+</style>
+</h:head>
+
+<h:body>
+	<h1>Moksleivio mokymo plano peržiūrėjimas</h1>
+	<h:form>
 		<h:panelGrid styleClass="block" columns="1">
 			<p:commandButton styleClass="button" value="Pagrindinis puslapis"
 				action="main"></p:commandButton>
 		</h:panelGrid>
-        </h:form>
-        
-        <h:form styleClass="search">
-        <p:fieldset styleClass="margin" legend="Mokinio paieška:"
-			style="width:94%; color:#585858">
-            <h:panelGrid columns="3">
-            <h:panelGroup style="padding:10px">				
-                <h:outputText style="margin-right:20px" value="Vardas"/>
-                <h:inputText id="clientName" required="true"/>
-            </h:panelGroup>
-            <h:panelGroup style="padding:10px">
-                <h:outputText style="margin-right:20px" value="Pavarde"/>
-                <h:inputText id="clientSurname" required="true"/>
-            </h:panelGroup>
-            <h:panelGroup style="padding:10px">    
-                <h:outputText style="margin-right:20px" value="Grupė:" />
-                <h:selectOneMenu style="width:80px"> 
-            		<f:selectItem itemValue = "" itemLabel = "" /> 
-            		<f:selectItem itemValue = "1" itemLabel = "1" /> 
-            		<f:selectItem itemValue = "2" itemLabel = "2" /> 
-            		<f:selectItem itemValue = "3" itemLabel = "3" /> 
-            		<f:selectItem itemValue = "4" itemLabel = "4" />     
-         		</h:selectOneMenu>  
-            </h:panelGroup>
-            </h:panelGrid>
-            </p:fieldset>           
-        </h:form>
+	</h:form>
 
-        <br></br>
-        
-        <h:form styleClass="continent">
-        	<div style="float:left;margin-left:20px;text-align:right" class="leftContinent">
-        	<p:fieldset legend="Privalomieji bendrojo ugdymo branduolio dalykai" style="width:500px; height:1085px; color:#585858">
-            	<h:panelGrid>
-          			<p:fieldset legend="Dorinis ugdymas" style="width:200px; color:#585858">
-            		<h:panelGrid columns="2">
-            		       	<h:outputText value="Tikyba" />
-            		       	<h:inputText styleClass="dor" readonly="true" value="0" />
-            		       	<h:outputText value="Etika" />
-            		       	<h:inputText styleClass="dor" readonly="true" value="0" />
-            		</h:panelGrid>
-            		</p:fieldset>
-            		<p:fieldset legend="Kalbos" style="width:450px; color:#585858">
-            		<h:panelGrid columns="2">
-            		       	<h:outputText value="Lietuviu kalba ir literatūra" />
-            		       	<h:inputText styleClass="kal" readonly="true" value="0" />
-            		       	<h:outputText value="Lietuvių kalba ir literatūra" />
-            		       	<h:inputText styleClass="kal" readonly="true" value="0" />
-            		       	<h:outputText value="Gimtoji rusų:" />
-            		       	<h:inputText styleClass="kal" readonly="true" value="0" />
-            		       	<h:outputText value="Gimtoji lenkų:" />
-            		       	<h:inputText styleClass="kal" readonly="true" value="0" />
-            		       	<h:outputText value="Užsienio kalba (anglų)" />
-            		       	<h:inputText styleClass="kal" readonly="true" value="0" />
-            		       	<h:outputText value="Užsienio kalba (vokiečių)" />
-            		       	<h:inputText styleClass="kal" readonly="true" value="0" />
-            		       	<h:outputText value="Užsienio kalba (prancūzų)" />
-            		       	<h:inputText styleClass="kal" readonly="true" value="0" />
-            		       	<h:outputText value="Užsienio kalba (rusų)" />
-            		       	<h:inputText styleClass="kal" readonly="true" value="0" />
-            		</h:panelGrid>
-            		</p:fieldset>
-            		<p:fieldset legend="Socialinis ugdymas" style="width:450px; color:#585858">
-            		<h:panelGrid columns="2">
-            		       	<h:outputText value="Istorija" />
-            		       	<h:inputText styleClass="soc" readonly="true" value="0" />
-            		       	<h:outputText value="Geografija" />
-            		       	<h:inputText styleClass="soc" readonly="true" value="0" />
-            		       	<h:outputText value="Integruotas soc. mokslų kursas" />
-            		       	<h:inputText styleClass="soc" readonly="true" value="0" />
-            		       	<h:outputText value="Matematika" />
-            		       	<h:inputText styleClass="soc" readonly="true" value="0" />
-            		</h:panelGrid>
-            		</p:fieldset>
-            		<p:fieldset legend="Gamtamokslinis ugdymas" style="width:450px; color:#585858">
-            		<h:panelGrid columns="2">
-            		       	<h:outputText value="Biologija" />
-            		       	<h:inputText styleClass="gam" readonly="true" value="0" />
-            		       	<h:outputText value="Fizika" />
-            		       	<h:inputText styleClass="gam" readonly="true" value="0" />
-            		       	<h:outputText value="Chemija" />
-            		       	<h:inputText styleClass="gam" readonly="true" value="0" />
-            		       	<h:outputText value="Integruotas gamtos mokslų kursas" />
-            		       	<h:inputText styleClass="gam" readonly="true" value="0" />
-            		</h:panelGrid>
-            		</p:fieldset>
-            		<p:fieldset legend="Kūno kultūra" style="width:450px; color:#585858">
-            		<h:panelGrid columns="2">
-            		       	<h:outputText value="Bendroji kūno kultūra" />
-            		       	<h:inputText styleClass="kun" readonly="true" value="0" />
-            		       	<h:outputText value="Futbolas" />
-            		       	<h:inputText styleClass="kun" readonly="true" value="0" />
-            		       	<h:outputText value="Krepšinis" />
-            		       	<h:inputText styleClass="kun" readonly="true" value="0" />
-            		</h:panelGrid>
-            		</p:fieldset>
-            		<h:panelGrid columns="2">
-            				<h:outputText style="margin-left:100px;" value="Privalomieji dalykai iš viso:" />
-            		       	<h:inputText readonly="true" style="width:100px;text-align:right;margin-left:36px;" />
-            		</h:panelGrid>            		
-            	</h:panelGrid>	
-            	</p:fieldset>
-            </div>
-            
-            <div style="margin-left:20px" class="rightContinent">
-            <p:fieldset legend="Pasirenkamieji prifesijos arba bendrojo ugdymo dalykai" style="width:500px; height: 1085px; color:#585858">
-            	<h:panelGrid>
-            	<p:fieldset legend="Pasirenkamieji dalykai" style="width:450px; color:#585858">
-            		<h:panelGrid columns="2">
-            		       	<h:outputText value="Rusų kalba II" />
-            		       	<h:inputText styleClass="pas" readonly="true" value="0" />
-            		       	<h:outputText value="Anglų kalba II" />
-            		       	<h:inputText styleClass="pas" readonly="true" value="0" />
-            		       	<h:outputText value="Vokiečių kalba II" />
-            		       	<h:inputText styleClass="pas" readonly="true" value="0" />
-            		       	<h:outputText value="Dizainas" />
-            		       	<h:inputText styleClass="pas" readonly="true" value="0" />
-            		       	<h:outputText value="Dailė" />
-            		       	<h:inputText styleClass="pas" readonly="true" value="0" />
-            		       	<h:outputText value="Teatras" />
-            		       	<h:inputText styleClass="pas" readonly="true" value="0" />
-            		       	<h:outputText value="Muzika" />
-            		       	<h:inputText styleClass="pas" readonly="true" value="0" />
-            		       	<h:outputText value="Informacinės technologijos" />
-            		       	<h:inputText styleClass="pas" readonly="true" value="0" />
-            		</h:panelGrid>
-            		</p:fieldset>
-            		<p:fieldset legend="Išplėstinis dalykų kursas" style="width:450px; color:#585858">
-            		<h:panelGrid columns="2">
-            		       	<h:outputText value="Lietuviu gimtoji kalba (išpl)" />
-            		       	<h:inputText styleClass="isp" readonly="true" value="0" />
-            		       	<h:outputText value="Lietuvių valstybinė kalba (išpl)" />
-            		       	<h:inputText styleClass="isp" readonly="true" value="0" />
-            		       	<h:outputText value="Užsienio kalba (išpl)" />
-            		       	<h:inputText styleClass="isp" readonly="true" value="0" />
-            		       	<h:outputText value="Istorija (išpl)" />
-            		       	<h:inputText styleClass="isp" readonly="true" value="0" />
-            		       	<h:outputText value="Matematika (išpl)" />
-            		       	<h:inputText styleClass="isp" readonly="true" value="0" />
-            		       	<h:outputText value="Biologija (išpl)" />
-            		       	<h:inputText styleClass="isp" readonly="true" value="0" />
-            		       	<h:outputText value="UFizika (išpl)" />
-            		       	<h:inputText styleClass="isp" readonly="true" value="0" />
-            		       	<h:outputText value="Chemija (išpl)" />
-            		       	<h:inputText styleClass="isp" readonly="true" value="0" />
-            		</h:panelGrid>
-            		</p:fieldset>
-            		<p:fieldset legend="Dalykų moduliai" style="width:450px; color:#585858">
-            		<h:panelGrid columns="2">
-            		       	<h:outputText value="Biologijos modulis I" />
-            		       	<h:inputText styleClass="dal" readonly="true" value="0" />
-            		       	<h:outputText value="Chemijos modulis" />
-            		       	<h:inputText styleClass="dal" readonly="true" value="0" />
-            		       	<h:outputText value="Biologijos modulis II" />
-            		       	<h:inputText styleClass="dal" readonly="true" value="0" />
-            		       	<h:outputText value="Fizikos modulis I" />
-            		       	<h:inputText styleClass="dal" readonly="true" value="0" />
-            		       	<h:outputText value="Fizikos modulis II" />
-            		       	<h:inputText styleClass="dal" readonly="true" value="0" />
-            		       	<h:outputText value="Fizikos modulis III" />
-            		       	<h:inputText styleClass="dal" readonly="true" value="0" />
-            		       	<h:outputText value="Matematikos modulis I" />
-            		       	<h:inputText styleClass="dal" readonly="true" value="0" />
-            		       	<h:outputText value="Matematikos modulis II" />
-            		       	<h:inputText styleClass="dal" readonly="true" value="0" />
-            		       	<h:outputText value="Matematikos modulis III" />
-            		       	<h:inputText styleClass="dal" readonly="true" value="0" />
-            		</h:panelGrid>
-            		</p:fieldset>
-            		<h:panelGrid columns="2">
-            				<h:outputText style="margin-left:77px;" value="Pasirenkamieji dalykai iš viso:" />
-            		       	<h:inputText readonly="true" style="width:100px;text-align:right;margin-left:36px;" />
-            		</h:panelGrid>            		
-            	</h:panelGrid>	
-            	</p:fieldset>
-            </div>
-        </h:form>
-        
-        <div class="continent">
-        <div class="leftContinent">
-            <h:panelGrid columns="2">			 
-                <p:outputLabel style="margin-left:50px" value="Būreliai" />
-                <p:selectOneMenu style="width:300px"> 
-            		<f:selectItem itemValue = "" itemLabel = "" /> 
-            		<f:selectItem itemValue = "1" itemLabel = "1" /> 
-            		<f:selectItem itemValue = "2" itemLabel = "2" /> 
-            		<f:selectItem itemValue = "3" itemLabel = "3" /> 
-            		<f:selectItem itemValue = "4" itemLabel = "4" />     
-         		</p:selectOneMenu>
-         		<p:outputLabel style="margin-left:50px; margin;" value="Pageidavimai"/>
-                <p:inputTextarea rows="5" cols="40" style="width:327px;" /> 
-            </h:panelGrid>           
-        </div>
-        <div class="rightContinent">
-        	<h:panelGrid columns="2" border="1">
-        		<p:outputLabel value="Iš viso valandų" />
-        		<p:inputText />
-        	</h:panelGrid>
-        </div>
-        </div>
-    </h:body>
+	<h:form styleClass="search">
+		<p:fieldset styleClass="margin" legend="Mokinio paieška:"
+			style="width:94%; color:#585858">
+			<h:panelGrid columns="4">
+				<h:panelGroup style="padding:10px">
+					<h:outputText style="margin-right:20px" value="Vardas" />
+					<h:inputText id="clientName" required="true" value="#{curriculumData.student.firstName}"/>
+				</h:panelGroup>
+				<h:panelGroup style="padding:10px">
+					<h:outputText style="margin-right:20px" value="Pavarde" />
+					<h:inputText id="clientSurname" required="true" value="#{curriculumData.student.lastName}"/>
+				</h:panelGroup>
+				<h:panelGroup style="padding:10px">
+					<h:outputText style="margin-right:20px" value="Grupė:" />
+					<h:selectOneMenu style="width:80px">
+						<f:selectItem itemValue="" itemLabel="" />
+						<f:selectItem itemValue="1" itemLabel="1" />
+						<f:selectItem itemValue="2" itemLabel="2" />
+						<f:selectItem itemValue="3" itemLabel="3" />
+						<f:selectItem itemValue="4" itemLabel="4" />
+					</h:selectOneMenu>
+				</h:panelGroup>
+				<h:panelGroup style="padding:10px">
+					<p:commandButton action="#{curriculumPage.showCurriculum()}" value="Surasti" icon="ui-icon-search"
+						update=":mainInfo" />
+				</h:panelGroup>
+			</h:panelGrid>
+		</p:fieldset>
+	</h:form>
+
+	<br></br>
+
+	<h:form id="mainInfo" styleClass="continent">
+		<div style="float: left; margin-left: 20px; text-align: right"
+			class="leftContinent">
+			<p:fieldset legend="Privalomieji bendrojo ugdymo branduolio dalykai"
+				style="width:500px; height:1085px; color:#585858">
+				<h:panelGrid>
+					<p:fieldset legend="Dorinis ugdymas"
+						style="width:200px; color:#585858">
+						<h:panelGrid columns="2">
+							<h:outputText value="Tikyba" />
+							<h:inputText styleClass="dor" readonly="true" value="#{curriculumData.newCurriculumSubjects.religion}" />
+							<h:outputText value="Etika" />
+							<h:inputText styleClass="dor" readonly="true" value="#{curriculumData.newCurriculumSubjects.ethic}" />
+						</h:panelGrid>
+					</p:fieldset>
+					<p:fieldset legend="Kalbos" style="width:450px; color:#585858">
+						<h:panelGrid columns="2">
+							<h:outputText value="Lietuviu kalba ir literatūra" />
+							<h:inputText styleClass="kal" readonly="true" value="#{curriculumData.newCurriculumSubjects.lithuanian_A}" />
+							<h:outputText value="Lietuvių kalba ir literatūra" />
+							<h:inputText styleClass="kal" readonly="true" value="#{curriculumData.newCurriculumSubjects.lithuanian_B}" />
+							<h:outputText value="Gimtoji rusų:" />
+							<h:inputText styleClass="kal" readonly="true" value="#{curriculumData.newCurriculumSubjects.native_Russian}" />
+							<h:outputText value="Gimtoji lenkų:" />
+							<h:inputText styleClass="kal" readonly="true" value="#{curriculumData.newCurriculumSubjects.native_Polish}" />
+							<h:outputText value="Užsienio kalba (anglų)" />
+							<h:inputText styleClass="kal" readonly="true" value="#{curriculumData.newCurriculumSubjects.foreign_English}" />
+							<h:outputText value="Užsienio kalba (vokiečių)" />
+							<h:inputText styleClass="kal" readonly="true" value="#{curriculumData.newCurriculumSubjects.foreign_German}" />
+							<h:outputText value="Užsienio kalba (prancūzų)" />
+							<h:inputText styleClass="kal" readonly="true" value="#{curriculumData.newCurriculumSubjects.foreign_French}" />
+							<h:outputText value="Užsienio kalba (rusų)" />
+							<h:inputText styleClass="kal" readonly="true" value="#{curriculumData.newCurriculumSubjects.foreign_Russian}" />
+						</h:panelGrid>
+					</p:fieldset>
+					<p:fieldset legend="Socialinis ugdymas"
+						style="width:450px; color:#585858">
+						<h:panelGrid columns="2">
+							<h:outputText value="Istorija" />
+							<h:inputText styleClass="soc" readonly="true" value="#{curriculumData.newCurriculumSubjects.history}" />
+							<h:outputText value="Geografija" />
+							<h:inputText styleClass="soc" readonly="true" value="#{curriculumData.newCurriculumSubjects.geography}" />
+							<h:outputText value="Integruotas soc. mokslų kursas" />
+							<h:inputText styleClass="soc" readonly="true" value="#{curriculumData.newCurriculumSubjects.social}" />
+							<h:outputText value="Matematika" />
+							<h:inputText styleClass="soc" readonly="true" value="#{curriculumData.newCurriculumSubjects.mathematics}" />
+						</h:panelGrid>
+					</p:fieldset>
+					<p:fieldset legend="Gamtamokslinis ugdymas"
+						style="width:450px; color:#585858">
+						<h:panelGrid columns="2">
+							<h:outputText value="Biologija" />
+							<h:inputText styleClass="gam" readonly="true" value="#{curriculumData.newCurriculumSubjects.biology}" />
+							<h:outputText value="Fizika" />
+							<h:inputText styleClass="gam" readonly="true" value="#{curriculumData.newCurriculumSubjects.physics}" />
+							<h:outputText value="Chemija" />
+							<h:inputText styleClass="gam" readonly="true" value="#{curriculumData.newCurriculumSubjects.chemistry}" />
+							<h:outputText value="Integruotas gamtos mokslų kursas" />
+							<h:inputText styleClass="gam" readonly="true" value="#{curriculumData.newCurriculumSubjects.natural_Sciences}" />
+						</h:panelGrid>
+					</p:fieldset>
+					<p:fieldset legend="Kūno kultūra"
+						style="width:450px; color:#585858">
+						<h:panelGrid columns="2">
+							<h:outputText value="Bendroji kūno kultūra" />
+							<h:inputText styleClass="kun" readonly="true" value="#{curriculumData.newCurriculumSubjects.physical_Education}" />
+							<h:outputText value="Futbolas" />
+							<h:inputText styleClass="kun" readonly="true" value="#{curriculumData.newCurriculumSubjects.football}" />
+							<h:outputText value="Krepšinis" />
+							<h:inputText styleClass="kun" readonly="true" value="#{curriculumData.newCurriculumSubjects.basketball}" />
+						</h:panelGrid>
+					</p:fieldset>
+					<h:panelGrid columns="2">
+						<h:outputText style="margin-left:100px;"
+							value="Privalomieji dalykai iš viso:" />
+						<h:inputText readonly="true"
+							style="width:100px;text-align:right;margin-left:36px;" value="#{curriculumData.mandatorySubjectsHours}" />
+					</h:panelGrid>
+				</h:panelGrid>
+			</p:fieldset>
+		</div>
+
+		<div style="margin-left: 20px" class="rightContinent">
+			<p:fieldset
+				legend="Pasirenkamieji prifesijos arba bendrojo ugdymo dalykai"
+				style="width:500px; height: 1085px; color:#585858">
+				<h:panelGrid>
+					<p:fieldset legend="Pasirenkamieji dalykai"
+						style="width:450px; color:#585858">
+						<h:panelGrid columns="2">
+							<h:outputText value="Rusų kalba II" />
+							<h:inputText styleClass="pas" readonly="true" value="#{curriculumData.newCurriculumSubjects.russian_II}" />
+							<h:outputText value="Anglų kalba II" />
+							<h:inputText styleClass="pas" readonly="true" value="#{curriculumData.newCurriculumSubjects.english_II}" />
+							<h:outputText value="Vokiečių kalba II" />
+							<h:inputText styleClass="pas" readonly="true" value="#{curriculumData.newCurriculumSubjects.german_II}" />
+							<h:outputText value="Dizainas" />
+							<h:inputText styleClass="pas" readonly="true" value="#{curriculumData.newCurriculumSubjects.design}" />
+							<h:outputText value="Dailė" />
+							<h:inputText styleClass="pas" readonly="true" value="#{curriculumData.newCurriculumSubjects.art}" />
+							<h:outputText value="Teatras" />
+							<h:inputText styleClass="pas" readonly="true" value="#{curriculumData.newCurriculumSubjects.theater}" />
+							<h:outputText value="Muzika" />
+							<h:inputText styleClass="pas" readonly="true" value="#{curriculumData.newCurriculumSubjects.music}" />
+							<h:outputText value="Informacinės technologijos" />
+							<h:inputText styleClass="pas" readonly="true" value="#{curriculumData.newCurriculumSubjects.information_Technology}" />
+						</h:panelGrid>
+					</p:fieldset>
+					<p:fieldset legend="Išplėstinis dalykų kursas"
+						style="width:450px; color:#585858">
+						<h:panelGrid columns="2">
+							<h:outputText value="Lietuviu gimtoji kalba (išpl)" />
+							<h:inputText styleClass="isp" readonly="true" value="#{curriculumData.newCurriculumSubjects.advanced_Lithuanian_Native}" />
+							<h:outputText value="Lietuvių valstybinė kalba (išpl)" />
+							<h:inputText styleClass="isp" readonly="true" value="#{curriculumData.newCurriculumSubjects.advanced_Lithuanian_State}" />
+							<h:outputText value="Užsienio kalba (išpl)" />
+							<h:inputText styleClass="isp" readonly="true" value="#{curriculumData.newCurriculumSubjects.advanced_Foreign_Language}" />
+							<h:outputText value="Istorija (išpl)" />
+							<h:inputText styleClass="isp" readonly="true" value="#{curriculumData.newCurriculumSubjects.advanced_History}" />
+							<h:outputText value="Matematika (išpl)" />
+							<h:inputText styleClass="isp" readonly="true" value="#{curriculumData.newCurriculumSubjects.advanced_Mathematics}" />
+							<h:outputText value="Biologija (išpl)" />
+							<h:inputText styleClass="isp" readonly="true" value="#{curriculumData.newCurriculumSubjects.advanced_Biology}" />
+							<h:outputText value="Fizika (išpl)" />
+							<h:inputText styleClass="isp" readonly="true" value="#{curriculumData.newCurriculumSubjects.advanced_Physics}" />
+							<h:outputText value="Chemija (išpl)" />
+							<h:inputText styleClass="isp" readonly="true" value="#{curriculumData.newCurriculumSubjects.advanced_Chemistry}" />
+						</h:panelGrid>
+					</p:fieldset>
+					<p:fieldset legend="Dalykų moduliai"
+						style="width:450px; color:#585858">
+						<h:panelGrid columns="2">
+							<h:outputText value="Biologijos modulis I" />
+							<h:inputText styleClass="dal" readonly="true" value="#{curriculumData.newCurriculumSubjects.biology_Module_I}" />
+							<h:outputText value="Chemijos modulis" />
+							<h:inputText styleClass="dal" readonly="true" value="#{curriculumData.newCurriculumSubjects.chemistry_Module}" />
+							<h:outputText value="Biologijos modulis II" />
+							<h:inputText styleClass="dal" readonly="true" value="#{curriculumData.newCurriculumSubjects.biology_Module_II}" />
+							<h:outputText value="Fizikos modulis I" />
+							<h:inputText styleClass="dal" readonly="true" value="#{curriculumData.newCurriculumSubjects.physics_Module_I}" />
+							<h:outputText value="Fizikos modulis II" />
+							<h:inputText styleClass="dal" readonly="true" value="#{curriculumData.newCurriculumSubjects.physics_Module_II}" />
+							<h:outputText value="Fizikos modulis III" />
+							<h:inputText styleClass="dal" readonly="true" value="#{curriculumData.newCurriculumSubjects.physics_Module_III}" />
+							<h:outputText value="Matematikos modulis I" />
+							<h:inputText styleClass="dal" readonly="true" value="#{curriculumData.newCurriculumSubjects.mathematics_Module_I}" />
+							<h:outputText value="Matematikos modulis II" />
+							<h:inputText styleClass="dal" readonly="true" value="#{curriculumData.newCurriculumSubjects.mathematics_Module_II}" />
+							<h:outputText value="Matematikos modulis III" />
+							<h:inputText styleClass="dal" readonly="true" value="#{curriculumData.newCurriculumSubjects.mathematics_Module_III}" />
+						</h:panelGrid>
+					</p:fieldset>
+					<h:panelGrid columns="2">
+						<h:outputText style="margin-left:77px;"
+							value="Pasirenkamieji dalykai iš viso:" />
+						<h:inputText readonly="true"
+							style="width:100px;text-align:right;margin-left:36px;" value="#{curriculumData.optionalSubjectsHours}"/>
+					</h:panelGrid>
+				</h:panelGrid>
+			</p:fieldset>
+		</div>
+		<div class="continent">
+			<div class="leftContinent">
+				<h:panelGrid columns="2">
+					<p:outputLabel style="margin-left:50px" value="Būreliai" />
+					<h:inputText styleClass="dal" readonly="true" value="#{curriculumData.newCurriculumSubjects.club}" />
+					<p:outputLabel style="margin-left:50px; margin;"
+						value="Pageidavimai" />
+					<p:inputTextarea rows="5" cols="40" style="width:327px;" value="#{curriculumData.newCurriculumSubjects.wishes}"/>
+				</h:panelGrid>
+			</div>
+			<div class="rightContinent">
+				<h:panelGrid columns="2" border="1">
+					<p:outputLabel value="Iš viso valandų" />
+					<p:inputText value="#{curriculumData.totalCurriculumHours}" readonly="true"/>
+				</h:panelGrid>
+			</div>
+		</div>
+	</h:form>
+</h:body>
 </html>
