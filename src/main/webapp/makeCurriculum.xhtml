@@ -9,6 +9,14 @@
 </h:head>
 <h:body>
 	<h1>Mokymo plano sudarymas</h1>
+
+	<h:form>
+		<h:panelGrid styleClass="block" columns="1">
+			<p:commandButton styleClass="button" value="Pagrindinis puslapis"
+				action="main"></p:commandButton>
+		</h:panelGrid>
+	</h:form>
+
 	<h:form styleClass="continent">
 		<p:fieldset style="margin-bottom:20px">
 			<h:panelGrid columns="3" cellpadding="5">
@@ -292,10 +300,9 @@
 				</h:panelGrid>
 			</p:fieldset>
 		</p:fieldset>
-		<p:commandButton value="Į pradžią" icon="ui-icon-home" action="main" />
 		<p:commandButton action="#{curriculumPage.addNew()}" value="Išsaugoti"
 			icon="ui-icon-disk" update="@(form)" />
 	</h:form>
-
+	<p:commandButton value="Į pradžią" icon="ui-icon-home" action="main" />
 </h:body>
 </html>
