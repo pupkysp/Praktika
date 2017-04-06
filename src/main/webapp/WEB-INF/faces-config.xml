@@ -38,4 +38,13 @@
 		</navigation-case>
 	</navigation-rule>
 	
+	<navigation-rule>
+		<from-view-id>/studentInformation.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>show-main-page</from-outcome>
+			<to-view-id>/main.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
 </faces-config>
