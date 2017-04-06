@@ -23,117 +23,99 @@ import lt.vtvpmc.emprs.repositories.RequestRepo;
 import lt.vtvpmc.emprs.repositories.StudentInfoRepo;
 import lt.vtvpmc.emprs.repositories.StudentRepo;
 
-
-
-
 public class StudentPage {
-	
+
 	public static final String NAV_SHOW_INDEX = "show-index-page";
-	
+
 	public static final String NAV_SHOW_VIEW = "show-view-page";
-	
+
+	public static final String NAV_SHOW_MAIN = "show-main-page";
+
 	static final Logger log = LoggerFactory.getLogger(StudentPage.class);
-	
-	public static class StudentData implements Serializable {		
+
+	public static class StudentData implements Serializable {
 
 		private static final long serialVersionUID = -2088646025586048142L;
-		
+
 		@Valid
 		private Student newStudent;
-		
+
 		@Valid
 		private Student currentStudent;
-		
+
 		@Valid
 		private Education newEducation;
-		
+
 		@Valid
 		private Education currentEducation;
-		
+
 		@Valid
 		private StudentInfo newStudentInfo;
-		
+
 		@Valid
 		private StudentInfo currentStudentInfo;
-				
+
 		@Valid
 		private Request newRequest;
-		
+
 		@Valid
 		private Request currentRequest;
-		
+
 		@Valid
 		private ParentInfo newParentInfo;
-		
+
 		@Valid
 		private ParentInfo currentParentInfo;
-		
+
 		@Valid
 		private AdditionalInfo newAdditionalInfo;
-		
+
 		@Valid
 		private AdditionalInfo currentAdditionalInfo;
-			
-		
+
 		public void init() {
-			
+
 			newEducation = new Education();
-			
+
 			newStudentInfo = new StudentInfo();
-			
+
 			newParentInfo = new ParentInfo();
-			
+
 			newRequest = new Request();
-			
+
 			newStudent = new Student();
-			
+
 			newAdditionalInfo = new AdditionalInfo();
-			
+
 		}
 
-		
-		
 		public Request getNewRequest() {
 			return newRequest;
 		}
-
-
 
 		public Education getNewEducation() {
 			return newEducation;
 		}
 
-
-
 		public void setNewEducation(Education newEducation) {
 			this.newEducation = newEducation;
 		}
-
-
 
 		public StudentInfo getNewStudentInfo() {
 			return newStudentInfo;
 		}
 
-
-
 		public void setNewStudentInfo(StudentInfo newStudentInfo) {
 			this.newStudentInfo = newStudentInfo;
 		}
-
-
 
 		public ParentInfo getNewParentInfo() {
 			return newParentInfo;
 		}
 
-
-
 		public void setNewParentInfo(ParentInfo newParentInfo) {
 			this.newParentInfo = newParentInfo;
 		}
-
-
 
 		public void setNewRequest(Request newRequest) {
 			this.newRequest = newRequest;
@@ -155,67 +137,45 @@ public class StudentPage {
 			this.currentStudent = currentStudent;
 		}
 
-		
-
 		public Education getCurrentEducation() {
 			return currentEducation;
 		}
-
-
 
 		public void setCurrentEducation(Education currentEducation) {
 			this.currentEducation = currentEducation;
 		}
 
-
-
 		public StudentInfo getCurrentStudentInfo() {
 			return currentStudentInfo;
 		}
-
-
 
 		public void setCurrentStudentInfo(StudentInfo currentStudentInfo) {
 			this.currentStudentInfo = currentStudentInfo;
 		}
 
-
-
 		public Request getCurrentRequest() {
 			return currentRequest;
 		}
-
-
 
 		public void setCurrentRequest(Request currentRequest) {
 			this.currentRequest = currentRequest;
 		}
 
-
-
 		public ParentInfo getCurrentParentInfo() {
 			return currentParentInfo;
 		}
-
-
 
 		public void setCurrentParentInfo(ParentInfo currentParentInfo) {
 			this.currentParentInfo = currentParentInfo;
 		}
 
-
-
 		public AdditionalInfo getCurrentAdditionalInfo() {
 			return currentAdditionalInfo;
 		}
 
-
-
 		public void setCurrentAdditionalInfo(AdditionalInfo currentAdditionalInfo) {
 			this.currentAdditionalInfo = currentAdditionalInfo;
 		}
-
-
 
 		public AdditionalInfo getNewAdditionalInfo() {
 			return newAdditionalInfo;
@@ -225,103 +185,127 @@ public class StudentPage {
 			this.newAdditionalInfo = newAdditionalInfo;
 		}
 
-		
 	}
 
 	private ListBean listBean;
-	
+
 	private StudentData data;
-	
+
 	private StudentRepo studentRepo;
-	
+
 	private RequestRepo requestRepo;
-	
+
 	private ParentInfoRepo parentInfoRepo;
-	
+
 	private StudentInfoRepo studentInfoRepo;
-	
+
 	private EducationRepo educationRepo;
-	
+
 	private AdditionalInfoRepo additionalInfoRepo;
-	
+
 	public String addNew() {
-		
-		
+
 		log.debug("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 
 		data.newRequest.setAdditionalInfo(data.newAdditionalInfo);
-		
+
 		data.newStudent.setRequest(data.newRequest);
-		
+
 		data.newStudent.setParentInfo(data.newParentInfo);
-		
+
 		data.newStudentInfo.setEducation(data.newEducation);
-		
+
 		data.newStudent.setStudentInfo(data.newStudentInfo);
-		
+
 		studentRepo.save(data.newStudent);
-		
+
 		data.newEducation = new Education();
-		
+
 		data.newParentInfo = new ParentInfo();
-		
+
 		data.newStudentInfo = new StudentInfo();
-		
+
 		data.newStudent = new Student();
-		
+
 		data.newRequest = new Request();
-		
+
 		data.newAdditionalInfo = new AdditionalInfo();
-		
+
 		return NAV_SHOW_INDEX;
-		
+
 	}
-	
+
 	public String findStudentData() {
 
-		Student st = studentRepo.findByFNameLNameAndBDate(data.newStudent.getFirstName(),
-				data.newStudent.getLastName(),
-				data.newStudent.getDateOfBirth());
+		if (data.newStudent == null || data.newStudent.getFirstName() == null || data.newStudent.getLastName() == null
+				|| data.newStudent.getDateOfBirth() == null) {
+			data.newStudent = new Student();
+			return NAV_SHOW_VIEW;
+		}
 
-		
+		Student st = null;
+		try {
+			st = studentRepo.findByFNameLNameAndBDate(data.newStudent.getFirstName(), data.newStudent.getLastName(),
+					data.newStudent.getDateOfBirth());
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			data.newStudent = new Student();
+			return NAV_SHOW_VIEW;
+		}
+
 		data.currentStudent = st;
 		data.currentRequest = requestRepo.findById(st.getRequest().getId());
 		data.currentStudentInfo = studentInfoRepo.findById(st.getStudentInfo().getId());
 		data.currentParentInfo = parentInfoRepo.findById(st.getParentInfo().getId());
 		data.currentEducation = educationRepo.findById(data.currentStudentInfo.getEducation().getId());
-		
+
 		data.currentAdditionalInfo = additionalInfoRepo.findById(data.currentRequest.getAdditionalInfo().getId());
-		
+
 		data.newStudent = new Student();
-		
+
 		return NAV_SHOW_VIEW;
-		
+
 	}
-		
-	
+
+	public String fromViewToMain() {
+
+		data.currentStudent = null;
+		data.currentRequest = null;
+		data.currentStudentInfo = null;
+		data.currentParentInfo = null;
+		data.currentEducation = null;
+
+		return NAV_SHOW_MAIN;
+
+	}
+
 	public void listBeanInit() {
 		listBean = new ListBean();
 		listBean.init();
-		
+
 	}
-	
-	public Map<String,String> maritalStatusMap(){
+
+	public Map<String, String> maritalStatusMap() {
 		listBean.init();
 		return listBean.getMaritalStatusMap();
 	}
-	public Map<String,String> educationMap(){
+
+	public Map<String, String> educationMap() {
 		listBean.init();
 		return listBean.getEducationMap();
 	}
-	public Map<String,String> institutionTypeMap(){
+
+	public Map<String, String> institutionTypeMap() {
 		listBean.init();
 		return listBean.getInstitutionTypeMap();
 	}
-	public Map<String,String> municipalityMap(){
+
+	public Map<String, String> municipalityMap() {
 		this.listBeanInit();
 		return listBean.getMunicipalityMap();
 	}
-	
+
 	public StudentInfoRepo getStudentInfoRepo() {
 		return studentInfoRepo;
 	}
@@ -330,18 +314,13 @@ public class StudentPage {
 		return educationRepo;
 	}
 
-
 	public void setEducationRepo(EducationRepo educationRepo) {
 		this.educationRepo = educationRepo;
 	}
 
-
-
 	public void setStudentInfoRepo(StudentInfoRepo studentInfoRepo) {
 		this.studentInfoRepo = studentInfoRepo;
 	}
-
-
 
 	public ParentInfoRepo getParentInfoRepo() {
 		return parentInfoRepo;
@@ -355,13 +334,9 @@ public class StudentPage {
 		this.listBean = listBean;
 	}
 
-
-
 	public void setParentInfoRepo(ParentInfoRepo parentInfoRepo) {
 		this.parentInfoRepo = parentInfoRepo;
 	}
-
-
 
 	public RequestRepo getRequestRepo() {
 		return requestRepo;
@@ -387,42 +362,12 @@ public class StudentPage {
 		this.studentRepo = studentRepo;
 	}
 
-
 	public AdditionalInfoRepo getAdditionalInfoRepo() {
 		return additionalInfoRepo;
 	}
-
 
 	public void setAdditionalInfoRepo(AdditionalInfoRepo additionalInfoRepo) {
 		this.additionalInfoRepo = additionalInfoRepo;
 	}
 
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

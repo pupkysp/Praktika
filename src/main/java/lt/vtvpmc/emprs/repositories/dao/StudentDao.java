@@ -15,14 +15,14 @@ import javax.persistence.criteria.Root;
 import lt.vtvpmc.emprs.entities.Student;
 import lt.vtvpmc.emprs.repositories.StudentRepo;
 
-public class StudentDao implements StudentRepo{
+public class StudentDao implements StudentRepo {
 
 	private EntityManagerFactory entityManagerFactory;
-	
+
 	private EntityManager getEntityManager() {
 		return entityManagerFactory.createEntityManager();
 	}
-	
+
 	public Student findById(Long id) {
 		EntityManager em = getEntityManager();
 		try {
@@ -62,7 +62,6 @@ public class StudentDao implements StudentRepo{
 			em.close();
 		}
 
-		
 	}
 
 	public void delete(Student student) {
@@ -77,7 +76,6 @@ public class StudentDao implements StudentRepo{
 			em.close();
 		}
 
-		
 	}
 
 	public Student update(Student student) {
@@ -87,35 +85,30 @@ public class StudentDao implements StudentRepo{
 		} finally {
 			em.close();
 		}
-		
+
 	}
 
-	public void setEntityManagerFactory(EntityManagerFactory entityManagerFactory) {
+	public void setEntityManagerFactory(EntityManagerFactory entityManagerFactory) throws Exception {
 		this.entityManagerFactory = entityManagerFactory;
 	}
 
 	@Override
 	public Student findByFNameLNameAndBDate(String firstName, String lastName, Date dateOfBirth) {
-		Student stdnt = null;
 		EntityManager em = getEntityManager();
-		SimpleDateFormat dmyFormat = new SimpleDateFormat("yyyy-MM-dd");
-		String dob = dmyFormat.format(dateOfBirth);
-		
-		if(firstName != null && lastName != null  && dateOfBirth != null) {
-			
-			try {
-				Query q1 = em.createQuery(
-						"SELECT id FROM Student WHERE FIRSTNAME='" + firstName + "' AND LASTNAME='" + lastName + "' AND DATEOFBIRTH='" + dob + "'");
-				Long result = (Long) q1.getSingleResult();
-				stdnt = em.find(Student.class, result);
-				return stdnt;
-			} finally {
-				em.close();
-			}
-				
+
+		try {
+			SimpleDateFormat dmyFormat = new SimpleDateFormat("yyyy-MM-dd");
+			String dob = dmyFormat.format(dateOfBirth);
+			Query q1 = em.createQuery("SELECT id FROM Student WHERE FIRSTNAME='" + firstName + "' AND LASTNAME='"
+					+ lastName + "' AND DATEOFBIRTH='" + dob + "'");
+			Long result = (Long) q1.getSingleResult();
+			Student s = em.find(Student.class, result);
+			return s;
+
+		} finally {
+			em.close();
 		}
-		
-		return stdnt;
+
 	}
 
 }
