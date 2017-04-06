@@ -1,6 +1,7 @@
 package lt.vtvpmc.emprs.entities;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -27,7 +28,7 @@ public class Student implements Serializable {
 
 	private String lastName;
 
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	private Date dateOfBirth;
 	
 	@OneToOne(cascade = CascadeType.ALL)
@@ -68,6 +69,7 @@ public class Student implements Serializable {
 	}
 
 	public void setDateOfBirth(Date dateOfBirth) {
+		
 		this.dateOfBirth = dateOfBirth;
 	}
 

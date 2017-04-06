@@ -1,9 +1,12 @@
 package lt.vtvpmc.emprs.repositories.dao;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -23,7 +26,7 @@ public class StudentDao implements StudentRepo{
 	public Student findById(Long id) {
 		EntityManager em = getEntityManager();
 		try {
-			TypedQuery<Student> invoiceQuery = em.createQuery("SELECT i From Invoice i WHERE i.id =:id", Student.class);
+			TypedQuery<Student> invoiceQuery = em.createQuery("SELECT s From Student s WHERE s.id =:id", Student.class);
 			invoiceQuery.setParameter("id", id);
 			invoiceQuery.setMaxResults(1);
 
@@ -89,6 +92,30 @@ public class StudentDao implements StudentRepo{
 
 	public void setEntityManagerFactory(EntityManagerFactory entityManagerFactory) {
 		this.entityManagerFactory = entityManagerFactory;
+	}
+
+	@Override
+	public Student findByFNameLNameAndBDate(String firstName, String lastName, Date dateOfBirth) {
+		Student stdnt = null;
+		EntityManager em = getEntityManager();
+		SimpleDateFormat dmyFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String dob = dmyFormat.format(dateOfBirth);
+		
+		if(firstName != null && lastName != null  && dateOfBirth != null) {
+			
+			try {
+				Query q1 = em.createQuery(
+						"SELECT id FROM Student WHERE FIRSTNAME='" + firstName + "' AND LASTNAME='" + lastName + "' AND DATEOFBIRTH='" + dob + "'");
+				Long result = (Long) q1.getSingleResult();
+				stdnt = em.find(Student.class, result);
+				return stdnt;
+			} finally {
+				em.close();
+			}
+				
+		}
+		
+		return stdnt;
 	}
 
 }
