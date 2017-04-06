@@ -25,7 +25,7 @@ public class ParentInfoDao implements ParentInfoRepo{
 	public ParentInfo findById(Long id) {
 		EntityManager em = getEntityManager();
 		try {
-			TypedQuery<ParentInfo> invoiceQuery = em.createQuery("SELECT i From Invoice i WHERE i.id =:id", ParentInfo.class);
+			TypedQuery<ParentInfo> invoiceQuery = em.createQuery("SELECT p From ParentInfo p WHERE p.id =:id", ParentInfo.class);
 			invoiceQuery.setParameter("id", id);
 			invoiceQuery.setMaxResults(1);
 

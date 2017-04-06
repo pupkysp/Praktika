@@ -25,7 +25,7 @@ public class AdditionalInfoDao implements AdditionalInfoRepo{
 	public AdditionalInfo findById(Long id) {
 		EntityManager em = getEntityManager();
 		try {
-			TypedQuery<AdditionalInfo> invoiceQuery = em.createQuery("SELECT i From Invoice i WHERE i.id =:id", AdditionalInfo.class);
+			TypedQuery<AdditionalInfo> invoiceQuery = em.createQuery("SELECT a From AdditionalInfo a WHERE a.id =:id", AdditionalInfo.class);
 			invoiceQuery.setParameter("id", id);
 			invoiceQuery.setMaxResults(1);
 

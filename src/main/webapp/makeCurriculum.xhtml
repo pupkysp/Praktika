@@ -9,9 +9,7 @@
 </h:head>
 <h:body>
 	<h1>Mokymo plano sudarymas</h1>
-
 	<h:form styleClass="continent">
-
 		<p:fieldset style="margin-bottom:20px">
 			<h:panelGrid columns="3" cellpadding="5">
 				<h:panelGrid columns="3" cellpadding="5">
@@ -29,12 +27,9 @@
 				<p:commandButton value="Patikrinti" icon="ui-icon-search"
 					action="#{curriculumPage.validate()}" />
 			</h:panelGrid>
-
 			<!--  <p:growl id="msgs" showDetail="true" /> -->
-
 			<p:fieldset legend="Privalomieji bendrojo ugdymo branduolio dalykai">
 				<div class="leftContinent">
-
 					<p:fieldset legend="Dorinis ugdymas" styleClass="margin"
 						style="width:430px">
 						<h:panelGrid columns="2" cellpadding="3">
@@ -47,7 +42,6 @@
 								value="#{curriculumData.newCurriculumSubjects.ethic}" size="1" />
 						</h:panelGrid>
 					</p:fieldset>
-
 					<p:fieldset legend="Matematika" styleClass="margin"
 						style="width:430px">
 						<h:panelGrid columns="2" cellpadding="3">
@@ -57,7 +51,6 @@
 								size="1" />
 						</h:panelGrid>
 					</p:fieldset>
-
 					<p:fieldset legend="Kalbos" style="margin-bottom:20px">
 						<h:panelGrid columns="2" cellpadding="5">
 							<p:outputLabel value="Lietuvių kalba ir literatūra (6)" />
@@ -80,7 +73,6 @@
 								size="1" />
 						</h:panelGrid>
 					</p:fieldset>
-
 					<p:fieldset legend="Socialinis ugdymas" styleClass="margin"
 						style="width:430px">
 						<h:panelGrid columns="2" cellpadding="3">
@@ -96,10 +88,8 @@
 								value="#{curriculumData.newCurriculumSubjects.social}" size="1" />
 						</h:panelGrid>
 					</p:fieldset>
-
 				</div>
 				<div class="rightContinent">
-
 					<p:fieldset legend="Užsienio kalbos" styleClass="margin"
 						style="width:430px">
 						<h:panelGrid columns="2" cellpadding="5">
@@ -124,7 +114,6 @@
 								size="1" />
 						</h:panelGrid>
 					</p:fieldset>
-
 					<p:fieldset legend="Gamtamokslis ugdymas" styleClass="margin"
 						style="width:430px">
 						<h:panelGrid columns="2" cellpadding="5">
@@ -144,7 +133,6 @@
 								size="1" />
 						</h:panelGrid>
 					</p:fieldset>
-
 					<p:fieldset legend="Kūno kultūra" styleClass="margin"
 						style="width:430px">
 						<h:panelGrid columns="2" cellpadding="4">
@@ -163,7 +151,6 @@
 						</h:panelGrid>
 					</p:fieldset>
 				</div>
-
 			</p:fieldset>
 			<p:fieldset
 				legend="Pasirenkamieji profesijos arba bendro ugdymo dalykai"
@@ -305,7 +292,6 @@
 				</h:panelGrid>
 			</p:fieldset>
 		</p:fieldset>
-
 		<p:commandButton value="Į pradžią" icon="ui-icon-home" action="main" />
 		<p:commandButton action="#{curriculumPage.addNew()}" value="Išsaugoti"
 			icon="ui-icon-disk" update="@(form)" />

@@ -34,13 +34,13 @@
 					value="#{studentData.newStudent.dateOfBirth}" />
 
 				<h:commandButton styleClass="buttonSearch"
-					action="studentInformation" value="Ieškoti" actionListener="#"
+					action="#{studentPage.findStudentData()}" value="Ieškoti"
 					update="@(form)" />
 
 			</h:panelGrid>
 		</p:fieldset>
 
-		<h:form styleClass="continent">
+	
 			<div class="leftContinent">
 
 				<p:fieldset styleClass="margin" legend="Informacija apie mokinį:"
@@ -48,37 +48,37 @@
 					<h:panelGrid styleClass="textRight" columns="2">
 
 						<p:outputLabel value="Vardas: " />
-						#{studentData.newStudent.firstName}
+						#{studentData.currentStudent.firstName}
 
 						<h:outputLabel value="Pavardė: " />
-						#{studentData.newStudent.lastName}
+						#{studentData.currentStudent.lastName}
 
 						<h:outputLabel value="Gimimo data: " />
-						#{studentData.newStudent.dateOfBirth}
+						#{studentData.currentStudent.dateOfBirth}
 
 						<h:outputLabel value="Adresas: " />
-						#{studentData.newStudentInfo.address}
+						#{studentData.currentStudentInfo.address}
 
 						<p:outputLabel value="Savivaldybė: " />
-						#{studentData.newStudentInfo.municipality}
+						#{studentData.currentStudentInfo.municipality}
 
 						<h:outputLabel value="Telefonas: " />
-						#{studentData.newStudentInfo.phoneNumber}
+						#{studentData.currentStudentInfo.phoneNumber}
 
 						<h:outputLabel value="Elektroninis paštas: " />
-						#{studentData.newStudentInfo.email}
+						#{studentData.currentStudentInfo.email}
 
 						<h:outputLabel value="Išsilavinimas: " />
-						#{studentData.newEducation.education}
+						#{studentData.currentEducation.education}
 
 						<h:outputLabel value="Baigė mokymo įstaigą: " />
-						#{studentData.newEducation.school}
+						#{studentData.currentEducation.school}
 
 						<h:outputLabel value="Mokyklos baigimo metai: " />
-						#{studentData.newEducation.schoolGraduationYear}
+						#{studentData.currentEducation.schoolGraduationYear}
 
 						<h:outputLabel value="Moksleivio šeimyninė padėtis: " />
-						#{studentData.newStudentInfo.maritalStatus}
+						#{studentData.currentStudentInfo.maritalStatus}
 						
 					</h:panelGrid>
 				</p:fieldset>
@@ -90,13 +90,13 @@
 						toggleSpeed="300" style="width:360px; color:#585858">
 						<h:panelGrid styleClass="textRight" columns="2">
 							<h:outputLabel value="Vardas: " />
-							#{studentData.newParentInfo.fatherFirstName}
+							#{studentData.currentParentInfo.fatherFirstName}
 							<h:outputLabel value="Pavardė: " />
-							#{studentData.newParentInfo.fatherLastName}
+							#{studentData.currentParentInfo.fatherLastName}
 							<h:outputLabel value="Adresas: " />
-							#{studentData.newParentInfo.fatherAddress}
+							#{studentData.currentParentInfo.fatherAddress}
 							<h:outputLabel value="Telefonas: " />
-							#{studentData.newParentInfo.fatherPhone}
+							#{studentData.currentParentInfo.fatherPhone}
 						</h:panelGrid>
 					</p:fieldset>
 
@@ -104,13 +104,13 @@
 						toggleSpeed="300" style="width:360px; color:#585858">
 						<h:panelGrid styleClass="textRight" columns="2">
 							<h:outputLabel value="Vardas: " />
-							#{studentData.newParentInfo.motherFirstName}
+							#{studentData.currentParentInfo.motherFirstName}
 							<h:outputLabel value="Pavardė: " />
-							#{studentData.newParentInfo.motherLastName}
+							#{studentData.currentParentInfo.motherLastName}
 							<h:outputLabel value="Adresas: " />
-							#{studentData.newParentInfo.motherAddress}
+							#{studentData.currentParentInfo.motherAddress}
 							<h:outputLabel value="Telefonas: " />
-							#{studentData.newParentInfo.motherPhone}
+							#{studentData.currentParentInfo.motherPhone}
 						</h:panelGrid>
 					</p:fieldset>
 
@@ -119,13 +119,13 @@
 						style="width:360px; color:#585858">
 						<h:panelGrid styleClass="textRight" columns="2">
 							<h:outputLabel value="Vardas: " />
-							#{studentData.newParentInfo.guardianFirstName}
+							#{studentData.currentParentInfo.guardianFirstName}
 							<h:outputLabel value="Pavardė: " />
-							#{studentData.newParentInfo.guardianLastName}
+							#{studentData.currentParentInfo.guardianLastName}
 							<h:outputLabel value="Adresas: " />
-							#{studentData.newParentInfo.guardianAddress}
+							#{studentData.currentParentInfo.guardianAddress}
 							<h:outputLabel value="Telefonas: " />
-							#{studentData.newParentInfo.guardianPhone}
+							#{studentData.currentParentInfo.guardianPhone}
 						</h:panelGrid>
 					</p:fieldset>
 				</p:fieldset>
@@ -137,32 +137,33 @@
 					style="width:520px; color:#585858">
 					<h:panelGrid styleClass="textRight" columns="2">
 						<h:outputText value="Išsilavinimo dokumentas: " />
-						#{studentData.newRequest.credential}
+						#{studentData.currentRequest.credential}
 						<h:outputText value="Sveikatos pažymėjimas: " />
-						#{studentData.newRequest.medicalCertificate}
+						#{studentData.currentRequest.medicalCertificate}
 						<h:outputText value="Nuotraukos 3x4 (2-4 vnt.): " />
-						#{studentData.newRequest.photo}
+						#{studentData.currentRequest.photo}
 						<h:outputText value="Paso kopija (tapatybės kortelės kopija): " />
-						#{studentData.newRequest.passportCopy}
+						#{studentData.currentRequest.passportCopy}
 						<h:outputText value="Šauktinio liudijimas: " />
-						#{studentData.newRequest.drafteeCertificate}
+						#{studentData.currentRequest.drafteeCertificate}
 						<h:outputText value="Stojamasis mokestis: " />
-						#{studentData.newRequest.entranceFee}
+						#{studentData.currentRequest.entranceFee}
 					</h:panelGrid>
 				</p:fieldset>
+
 
 				<p:fieldset styleClass="margin"
 					legend="Jei mokosi antrą kartą, papildomai pateikti šiuos duomenis:"
 					style="width:520px; color:#585858">
 					<h:panelGrid styleClass="textRight" columns="2">
 						<h:outputLabel value="Įgyta specialybė: " />
-						#{studentData.newEducation.speciality}
+						#{studentData.currentEducation.speciality}
 						<h:outputLabel value="Institucijos pavadinimas: " />
-						#{studentData.newEducation.nameOfInstitution}
+						#{studentData.currentEducation.nameOfInstitution}
 						<h:outputLabel value="Institucijos tipas: " />
-						#{studentData.newEducation.institutionType}
+						#{studentData.currentEducation.institutionType}
 						<h:outputLabel value="Baigimo metai: " />
-						#{studentData.newEducation.institutionGraduationYear}
+						#{studentData.currentEducation.institutionGraduationYear}
 					</h:panelGrid>
 				</p:fieldset>
 
@@ -171,11 +172,11 @@
 					style="width:520px; color:#585858">
 					<h:panelGrid styleClass="textRight" columns="2">
 						<h:outputLabel value="Priėmimo prašymo data: " />
-						#{studentData.newRequest.requestdate}
+						#{studentData.currentRequest.requestdate}
 						<h:outputLabel value="Grupė: " />
-						#{studentData.newRequest.unit}
+						#{studentData.currentRequest.unit}
 						<h:outputLabel value="Pakopa: " />
-						#{studentData.newRequest.stage}
+						#{studentData.currentRequest.stage}
 					</h:panelGrid>
 				</p:fieldset>
 
@@ -183,7 +184,7 @@
 					style="width:520px; color:#585858">
 					<h:panelGrid columns="2">
 						<h:outputText value="Ar reikalingas bendrabutis: " />
-						#{studentData.newRequest.dormitory}
+						#{studentData.currentRequest.dormitory}
 
 						<h:outputText value="Iš kur sužinojote apie mūsų įstaigą: " />
 						<h:panelGrid columns="4" border="1">
@@ -191,18 +192,18 @@
 							<h:outputText
 								value="#{studentData.newAdditionalInfo.fromFriends}" />
 							<h:outputText value="Interneto: " />
-							<h:outputText value="#{studentData.newAdditionalInfo.fromWeb}" />
+							<h:outputText value="#{studentData.currentAdditionalInfo.fromWeb}" />
 							<h:outputText value="Leidinio 'Kur Stoti?': " />
 							<h:outputText
-								value="#{studentData.newAdditionalInfo.fromPublication}" />
+								value="#{studentData.currentAdditionalInfo.fromPublication}" />
 							<h:outputText value="Mokykloje: " />
-							<h:outputText value="#{studentData.newAdditionalInfo.fromSchool}" />
+							<h:outputText value="#{studentData.currentAdditionalInfo.fromSchool}" />
 							<h:outputText value="Reklamoje: " />
-							<h:outputText value="#{studentData.newAdditionalInfo.fromAds}" />
+							<h:outputText value="#{studentData.currentAdditionalInfo.fromAds}" />
 							<h:outputText value="Proforientacijos metu: " />
-							<h:outputText value="#{studentData.newAdditionalInfo.fromProf}" />
+							<h:outputText value="#{studentData.currentAdditionalInfo.fromProf}" />
 							<h:outputText value="Kita.." />
-							<h:outputText value="#{studentData.newAdditionalInfo.other}" />
+							<h:outputText value="#{studentData.currentAdditionalInfo.other}" />
 						</h:panelGrid>
 					</h:panelGrid>
 				</p:fieldset>
@@ -211,12 +212,12 @@
 					style="width:520px; color:#585858">
 					<h:panelGrid styleClass="textRight" columns="2" cellpadding="15">
 						<h:outputText value="Mokinys atsiemė dokumentus. " />
-						#{studentData.newRequest.documentsWithdrawn}
+						#{studentData.currentRequest.documentsWithdrawn}
 					</h:panelGrid>
 				</p:fieldset>
 
 			</div>
-		</h:form>
+		
 		<div class="gap"></div>
 	</h:form>
 	<p>&#x24B8; 2017m. Perfect0</p>

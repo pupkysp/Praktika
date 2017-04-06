@@ -23,7 +23,7 @@ public class StudentInfoDao implements StudentInfoRepo {
 		public StudentInfo findById(Long id) {
 			EntityManager em = getEntityManager();
 			try {
-				TypedQuery<StudentInfo> invoiceQuery = em.createQuery("SELECT i From Invoice i WHERE i.id =:id", StudentInfo.class);
+				TypedQuery<StudentInfo> invoiceQuery = em.createQuery("SELECT si From StudentInfo si WHERE si.id =:id", StudentInfo.class);
 				invoiceQuery.setParameter("id", id);
 				invoiceQuery.setMaxResults(1);
 
